@@ -5,11 +5,11 @@ publishedDate: 2020-05-13T12:00:28.345Z
 description: In this post, I will share different choices the engineering team has made throughout the early phase of the product development to navigate uncertainty, to the extent of building uncertainty within the product. For those curious about how life is like building a product for the government, you get a rare peek into how one team does it.
 featured: true
 img: ../../static/images/dirt-bike-action.png
-imgAlt: Get a table?
+imgAlt: What's next?
 tags:
-  - opinion
-  - finance
-  - economy
+  - leadership
+  - agile
+  - devops
 ---
 
 On 29th January 2020 (Wednesday), I received a call from Steven at 10:30 pm, asking for assistance on a product for distributing supplies to the whole of Singapore. The requirements were vague - "We need to distribute disposable surgical mask to our citizen. We need a system to track it. And we need it ready by Monday". I asked for more information but that was what I got. I've never received a call from him past office hours and understood the urgency and severity of the problem. Assembling a (crazy) team at midnight that day with RJ and Sebastian, we went on to build a product now known as SupplyAlly. An app used to maintain a central record of transactions across different distribution initiatives.
