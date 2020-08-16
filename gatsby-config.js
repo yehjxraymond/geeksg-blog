@@ -1,7 +1,7 @@
-const siteName = "Sample Blog";
-const siteShortName = "Sample Blog";
+const siteName = "Software Engineering, Blockchain, Cyber-security, RadicalXChange | GEEK.SG";
+const siteShortName = "Software Engineering, Blockchain, Cyber-security, RadicalXChange | GEEK.SG";
 const siteUrl = "https://geek.sg/";
-const siteDescription = "Sample blog template";
+const siteDescription = "Rambles of a Software Engineer";
 const siteKeyword = "";
 const siteLogo = "logo.png";
 const siteLogoFolder = `static/${siteLogo}`;
