@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { format } from "date-fns";
 import Image, { FluidObject } from "gatsby-image";
-import { Layout } from "../../components/layout";
+import { Layout } from "../layout";
 
 interface BlogPost {
   title: string;

@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import { FluidObject } from "gatsby-image";
 import { BlogPost } from "../../components/blogPost";
 import { SEO } from "../../components/seo";
+
 interface QueryData {
   markdownRemark: {
     html: string;
