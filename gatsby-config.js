@@ -1,5 +1,7 @@
-const siteName = "Software Engineering, Blockchain, Cyber-security, RadicalXChange | GEEK.SG";
-const siteShortName = "Software Engineering, Blockchain, Cyber-security, RadicalXChange | GEEK.SG";
+const siteName =
+  "Software Engineering, Blockchain, Cyber-security, RadicalXChange | GEEK.SG";
+const siteShortName =
+  "Software Engineering, Blockchain, Cyber-security, RadicalXChange | GEEK.SG";
 const siteUrl = "https://geek.sg/";
 const siteDescription = "Rambles of a Software Engineer";
 const siteKeyword = "";

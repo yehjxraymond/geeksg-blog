@@ -146,7 +146,7 @@ export const Header: FunctionComponent<Header> = ({ menuItems, logo }) => {
     setMobileDrawerOn(!mobileDrawerOn);
   };
   return (
-    <div className="relative bg-white">
+    <div className="relative bg-white z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
           <div className="lg:w-0 lg:flex-1">
@@ -194,7 +194,7 @@ export const Header: FunctionComponent<Header> = ({ menuItems, logo }) => {
       </div>
       {mobileDrawerOn && (
         <div
-          className={`duration-100 ease-in absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden z-50`}
+          className={`duration-100 ease-in absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden`}
         >
           <div className="rounded-lg shadow-lg">
             <div className="rounded-lg shadow-xs bg-white divide-y-2 divide-gray-50">

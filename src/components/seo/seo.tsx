@@ -5,11 +5,17 @@ import { join } from "path";
 
 // https://ogp.me/#types
 
+type Meta = {
+  name?: string;
+  content: string;
+  property?: string;
+};
+
 type SEO = {
   description?: string;
   lang?: string;
-  meta?: any;
-  keywords?: any;
+  meta?: Meta;
+  keywords?: string[];
   title: string;
   type?: "website" | "article" | "blog";
   image?: string;
@@ -40,7 +46,11 @@ export const SEO: React.FunctionComponent<SEO> = ({
     `
   );
 
-  const imagePath = image ? join(siteMetadata.siteUrl, image) : undefined;
+  const imagePath = image
+    ? image.includes("http")
+      ? image
+      : join(siteMetadata.siteUrl, image)
+    : undefined;
 
   const metaDescription = description || siteMetadata.description;
 

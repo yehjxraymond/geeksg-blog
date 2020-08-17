@@ -2,11 +2,13 @@ import React, { FunctionComponent, useState } from "react";
 import { navigate } from "gatsby";
 import { Layout } from "../components/layout";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const createFormDataObj = (data: any) => {
   const formData = new FormData();
   Object.keys(data).forEach((k) => {
     formData.append(k, data[k]);
   });
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return formData as any;
 };
 
@@ -36,6 +38,7 @@ export const NotFound: FunctionComponent = () => {
       body: new URLSearchParams(createFormDataObj(data)).toString(),
     })
       .then(() => navigate("/contact-success"))
+      // eslint-disable-next-line no-alert
       .catch((error) => alert(error));
     // This is required to prevent the default onSubmit behavior
     e.preventDefault();
