@@ -24,7 +24,7 @@ export const Footer: FunctionComponent<Footer> = ({
       <div className="max-w-screen-xl mx-auto py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8">
         <div className="flex justify-center md:order-2">
           {facebook && (
-            <a href={facebook} className="text-gray-400 hover:text-gray-500">
+            <a href={facebook} className="text-gray-500 hover:text-gray-600">
               <span className="sr-only">Facebook</span>
               <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                 <path
@@ -38,7 +38,7 @@ export const Footer: FunctionComponent<Footer> = ({
           {instagram && (
             <a
               href={instagram}
-              className="ml-6 text-gray-400 hover:text-gray-500"
+              className="ml-6 text-gray-500 hover:text-gray-600"
             >
               <span className="sr-only">Instagram</span>
               <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -53,7 +53,7 @@ export const Footer: FunctionComponent<Footer> = ({
           {twitter && (
             <a
               href={twitter}
-              className="ml-6 text-gray-400 hover:text-gray-500"
+              className="ml-6 text-gray-500 hover:text-gray-600"
             >
               <span className="sr-only">Twitter</span>
               <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -62,7 +62,7 @@ export const Footer: FunctionComponent<Footer> = ({
             </a>
           )}
           {github && (
-            <a href={github} className="ml-6 text-gray-400 hover:text-gray-500">
+            <a href={github} className="ml-6 text-gray-500 hover:text-gray-600">
               <span className="sr-only">GitHub</span>
               <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                 <path
@@ -76,7 +76,7 @@ export const Footer: FunctionComponent<Footer> = ({
           {dribble && (
             <a
               href={dribble}
-              className="ml-6 text-gray-400 hover:text-gray-500"
+              className="ml-6 text-gray-500 hover:text-gray-600"
             >
               <span className="sr-only">Dribbble</span>
               <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -91,7 +91,7 @@ export const Footer: FunctionComponent<Footer> = ({
           {linkedin && (
             <a
               href={linkedin}
-              className="ml-6 text-gray-400 hover:text-gray-500"
+              className="ml-6 text-gray-500 hover:text-gray-600"
             >
               <span className="sr-only">LinkedIn</span>
               <svg
@@ -105,7 +105,7 @@ export const Footer: FunctionComponent<Footer> = ({
           )}
         </div>
         <div className="mt-8 md:mt-0 md:order-1">
-          <p className="text-center text-base leading-6 text-gray-400">
+          <p className="text-center text-base leading-6 text-gray-500">
             © {new Date().getFullYear()} {copyrightOwner}. All rights reserved.
           </p>
         </div>
