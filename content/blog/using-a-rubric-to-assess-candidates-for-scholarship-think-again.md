@@ -47,6 +47,8 @@ Let's throw away the rubrics and just focus on the deliberation...
 
 Let's imagine a new way of assessing, using only simple priority list. Each assessor will simply maintain his own list of candidates ranked by the overall standing of the candidates. When the first candidate is being assessed, he will be placed in the center of the list. Each subsequent candidate will simply be inserted in above or below other candidates which were previously assessed.
 
+Once the entire pool of candidates has been assessed, each assessor will have their own priority list. Now, they will simply combine their priority lists into one. They can do so by assigning an score to each candidate on the list. 
+
 For instance, for a list of 5 candidates, where the first is the most favored candidate, the score will look like:
 
 ```txt
@@ -56,8 +58,6 @@ Ellisha Chan - (3)
 Arisha Cuevas - (2)
 Zaki Kirby - (1)
 ```
-
-Once the entire pool of candidates has been assessed, each assessor will have their own priority list. Now, they will simply combine their priority lists into one. They can do so by assigning an score to each candidate on the list. 
 
 The scores will be added for all candidates and the overall priority list could then look like (in a scenario of 4 assessors): 
 
