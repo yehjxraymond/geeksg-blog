@@ -7,7 +7,7 @@ description: >
   outcomes. However, outside of the education system we still see it being used
   everywhere, from case study competitions, to hackathons, interviews or
   scholarship assessments. 
-featured: false
+featured: true
 img: ../../static/images/girl-with-book.png
 imgAlt: Drop the rubrics, this is not the school!
 tags:

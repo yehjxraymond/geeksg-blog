@@ -3,7 +3,7 @@ template: blog-post
 title: Implementing End-to-End Encryption on a Quadratic Voting (QV) Application
 publishedDate: 2019-12-20T12:00:28.345Z
 description: Recently, my tribe held our promotion nomination exercise using my quadratic voting app. The exercise allow all members of the tribe to vote one another for the upcoming promotion. One of the concerns of using the quadratic voting application was that I could potentially read and change the votes since I've database access. How would I convince my colleagues to trust me?
-featured: true
+featured: false
 img: ../../static/images/lock-on-chain.png
 imgAlt: Don't Ask, Don't Tell
 tags:
