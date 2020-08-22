@@ -70,7 +70,7 @@ Arisha Cuevas - (8)
 Zaki Kirby - (6)
 ```
 
-With this list, we can see the overall ranking of all the candidate against one another. One can then award competition prizes accordingly to the rank. 
+With this list, we can see the overall ranking of all the candidate against one another. The panel can then award the prizes accordingly to the rank.
 
 One might think that the results of the rubrics would also achieve the same, but here are some stark difference: 
 
