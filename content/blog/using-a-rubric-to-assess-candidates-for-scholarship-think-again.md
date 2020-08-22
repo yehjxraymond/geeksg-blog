@@ -1,6 +1,6 @@
 ---
 template: blog-post
-title: Using a rubric to assess candidates for scholarship? Think again.
+title: Using a rubric to assess candidates for hackathon/scholarship? Think again.
 publishedDate: 2020-08-22T09:04:26.956Z
 description: >
   Rubrics are useful tools used to assess students according to learning
