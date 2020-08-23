@@ -14,7 +14,7 @@ type Meta = {
 type SEO = {
   description?: string;
   lang?: string;
-  meta?: Meta;
+  meta?: Meta[];
   keywords?: string[];
   title: string;
   type?: "website" | "article" | "blog";
@@ -54,7 +54,7 @@ export const SEO: React.FunctionComponent<SEO> = ({
 
   const metaDescription = description || siteMetadata.description;
 
-  const metaFinal = [
+  const metaFinal: Meta[] = [
     {
       name: `description`,
       content: metaDescription,
@@ -102,7 +102,7 @@ export const SEO: React.FunctionComponent<SEO> = ({
 
   if (imagePath) {
     metaFinal.push({
-      property: `og:title`,
+      property: `og:image`,
       content: imagePath,
     });
     metaFinal.push({
