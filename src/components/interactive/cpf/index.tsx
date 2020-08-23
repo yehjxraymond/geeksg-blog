@@ -288,7 +288,7 @@ export const CpfTable: FunctionComponent<ComputedResults> = ({
           Yearly balances are hidden in mobile view, to view the table of the
           balance for each year, please view this page on the desktop.
         </div>
-        <table className="hidden md:block text-center w-full">
+        <table className="hidden md:table text-center w-full">
           <thead>
             <tr className="bg-gray-800 text-white">
               <th className="p-2">Age</th>
@@ -323,6 +323,7 @@ export const CpfTable: FunctionComponent<ComputedResults> = ({
             {computedResult.map((cpf, index) => (
               <tr
                 key={index}
+                className="leading-3"
                 style={{
                   backgroundColor: frsColor(cpf.oa + cpf.sa, cpf.currentFrs),
                 }}
@@ -346,6 +347,10 @@ export const CpfTable: FunctionComponent<ComputedResults> = ({
             ))}
           </tbody>
         </table>
+        <div className="hidden md:block text-sm mt-2">
+          * The BRS/FRS/ERS is considered to be achieved when the monies in OA +
+          SA exceeds the target value.
+        </div>
       </div>
     </>
   );

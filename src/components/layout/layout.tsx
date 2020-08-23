@@ -26,9 +26,9 @@ const menuItems: MenuItem[] = [
             className="calculator w-6 h-6"
           >
             <path
-              fill-rule="evenodd"
+              fillRule="evenodd"
               d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V4a2 2 0 00-2-2H6zm1 2a1 1 0 000 2h6a1 1 0 100-2H7zm6 7a1 1 0 011 1v3a1 1 0 11-2 0v-3a1 1 0 011-1zm-3 3a1 1 0 100 2h.01a1 1 0 100-2H10zm-4 1a1 1 0 011-1h.01a1 1 0 110 2H7a1 1 0 01-1-1zm1-4a1 1 0 100 2h.01a1 1 0 100-2H7zm2 1a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1zm4-4a1 1 0 100 2h.01a1 1 0 100-2H13zM9 9a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1zM7 8a1 1 0 000 2h.01a1 1 0 000-2H7z"
-              clip-rule="evenodd"
+              clipRule="evenodd"
             ></path>
           </svg>
         ),
@@ -40,9 +40,9 @@ const menuItems: MenuItem[] = [
         icon: (
           <svg viewBox="0 0 20 20" fill="currentColor" className="chat-alt w-6 h-6">
             <path
-              fill-rule="evenodd"
+              fillRule="evenodd"
               d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z"
-              clip-rule="evenodd"
+              clipRule="evenodd"
             ></path>
           </svg>
         ),
