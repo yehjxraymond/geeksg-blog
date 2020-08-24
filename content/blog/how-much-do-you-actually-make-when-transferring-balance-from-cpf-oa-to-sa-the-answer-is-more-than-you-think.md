@@ -46,7 +46,7 @@ Immediately we can see that this person will be retiring with **\$1,086,481** in
 
 ![CPF balances after transfer](../../static/images/cpf-forecast-balance-after-transfer.png)
 
-Repeating the same calculation for the scenario where $50k was transferred from OA to SA, we can see that the final amount is now **\$1,129,790\*\*.
+Repeating the same calculation for the scenario where $50k was transferred from OA to SA, we can see that the final amount is now **\$1,129,790**.
 
 ![CPF forecast after transfer](../../static/images/cpf-forecast-after-transfer.png)
 
@@ -64,13 +64,13 @@ While 1.5% seemed to be a small amount, the difference is compounded each year. 
 
 ## Let's transfer all the balance to SA then!
 
+![Smash that button!](../../static/images/cpf-app-transfer-oa-sa.png)
+
 Before you smash the transfer button, evaluate what is an appropriate amount to be transferred. Some key considerations should be:
 
 - Do you have enough emergency funds to pay off mortgage if you lose your income?
 - Are you considering to upgrade your flat in the future?
 - Do you foresee your kids using the balance for studying in the future?
-
-![Smash that button!](../../static/images/cpf-app-transfer-oa-sa.png)
 
 If after these considerations you realized that you have excess monies in the OA account, smash that button!
 
