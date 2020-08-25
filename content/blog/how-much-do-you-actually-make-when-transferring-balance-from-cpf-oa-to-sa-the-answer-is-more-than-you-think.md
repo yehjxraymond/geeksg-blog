@@ -6,7 +6,7 @@ publishedDate: 2020-08-24T14:03:16.051Z
 description: "My fiance and I had extra monies in our CPF OA after booking a
   flat. We wanted to find out how much more interest we get if we transfer the
   balance to SA. "
-featured: false
+featured: true
 img: ../../static/images/curious-pig.png
 imgAlt: Curious pig is skeptical... Let's pull in the math
 tags:
