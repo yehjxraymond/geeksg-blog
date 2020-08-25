@@ -22,7 +22,7 @@ We knew the action is irreversible so I wanted to find out the value of action o
 
 Turns out, it is more than what we thought.
 
-> Transferring 50k now gives us more than EXTRA 40k in interest when we retire
+> Transferring 50k now gives us EXTRA 40k in interest when we retire
 
 ## Scenario
 
