@@ -3,12 +3,13 @@ template: blog-post
 title: Complete guide to buying Bitcoin, Ethereum or other cryptocurrencies in
   Singapore
 publishedDate: 2020-08-31T12:26:48.846Z
-description: Buying bitcoin, ethereum or other cryptocurrencies has gotten
-  easier since the first time I bought them. In this guide, I'll compare some of
-  the exchanges that I use and help you select your go to exchange depending on
-  your profile.
+description: Buying your first Bitcoin, Ethereum or other cryptocurrencies is
+  scary. Apart from the vast selection of coins, you have to worry about which
+  is the best exchange to buy from. In this guide, I'll compare some of the
+  exchanges that I use and help you select your go-to exchange depending on your
+  profile.
 featured: true
-img: ../../static/images/bitcoin-crypto-credit-card.png
+img: ../../static/images/bitcoin-background.png
 imgAlt: Welcome to decentralized finance
 tags:
   - blockchain
