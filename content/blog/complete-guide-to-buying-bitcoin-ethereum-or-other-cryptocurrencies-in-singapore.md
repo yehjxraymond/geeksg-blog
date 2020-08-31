@@ -156,6 +156,8 @@ Use this if
 
 ## Summary
 
+Now that you have seen how different the exchanges are, you might have an idea of which will suit your needs. Below is a quick summary table of the few points I've discussed.
+
 | Exchange     | CoinHako                                                                        | Coinbase                                                   | Changelly                                                     | Liquid                                                                  |
 | ------------ | ------------------------------------------------------------------------------- | ---------------------------------------------------------- | ------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | Volume       | $100 - $100,000                                                                 | $1 - $1,000                                                | $1 - $10,000                                                  | > \$50,000                                                              |
@@ -164,3 +166,5 @@ Use this if
 | Trading Fees | Moderate (0.8%)                                                                 | Very High (3.99%)                                          | Varies                                                        | Low (< 0.3%)                                                            |
 | KYC          | Instant with MyInfo                                                             | Multiple steps                                             | Not needed                                                    | Multiple steps                                                          |
 | Link         | [Go to CoinHako](https://www.coinhako.com/affiliations/sign_up/RAYMONDYEH_4046) | [Go to Coinbase](https://www.coinbase.com/join/raymon_1kg) | [Go to Changelly](https://changelly.com/?ref_id=c49548fe8bef) | [Go to Liquid](https://www.liquid.com/sign-up/?affiliate=-YNsiS2d28178) |
+
+\* If you signed up with some of the links provided, you will be entitled to different perks like discounted trading fees, or free crypto upon successful purchase, depending on the exchange.
