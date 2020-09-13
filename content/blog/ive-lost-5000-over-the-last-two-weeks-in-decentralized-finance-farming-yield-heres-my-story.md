@@ -120,7 +120,7 @@ When farmers refuse to believe that the (future) price of the native token is wo
 
 While some farmers are ignorant to the fact that the native tokens will eventually have \$0.00 value, others understood the laws of physics, but have decided to take the plunge in providing liquidity for the native token, because they are confident that they will not be [the greater fool](https://en.wikipedia.org/wiki/Greater_fool_theory).
 
-So long as there are fools in the market, there are additional yields. So long as there are additional yields, there will be the degenerate (degen) farmers.
+So long as there are fools in the market, there are additional yields. So long as there are additional yields, there will be the [degenerate (degen) farmers](https://au.news.yahoo.com/defi-degens-gaming-ethereum-money-201333873.html).
 
 ### The Accession to Degeneration
 
