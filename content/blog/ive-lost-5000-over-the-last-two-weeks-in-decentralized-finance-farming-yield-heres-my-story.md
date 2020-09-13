@@ -141,3 +141,5 @@ Here are some tips to not be the yield:
 ---
 
 Ps. Following this set of rules strictly over the next few days, my portfolio has since crawled out of the reds.
+
+The decentralized finance space is growing rapidly. Few people will understand the different components that fits together. Over the next few weeks, I'll be writing about the basic building blocks of defi and how they compare with traditional finance to help you get started. Subscribe to the mailing list to be notified on upcoming posts.
