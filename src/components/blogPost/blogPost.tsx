@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import { format } from "date-fns";
 import Image, { FluidObject } from "gatsby-image";
 import { Layout } from "../layout";
-
+import { Newsletter } from "../newsletter";
 interface BlogPost {
   title: string;
   tags: string[];
@@ -50,6 +50,7 @@ export const BlogPost: FunctionComponent<BlogPost> = ({
           </div>
         </div>
       </div>
+      <Newsletter />
     </Layout>
   );
 };

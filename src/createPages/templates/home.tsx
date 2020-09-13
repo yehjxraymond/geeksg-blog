@@ -7,6 +7,7 @@ import { FeaturePosts } from "../../components/featurePosts";
 import { RecentPosts } from "../../components/recentPosts";
 import { Pagination } from "../../components/pagination";
 import { SEO } from "../../components/seo";
+import { Newsletter } from "../../components/newsletter";
 
 export const pageQuery = graphql`
   {
@@ -119,6 +120,7 @@ const Home: FunctionComponent<Home> = ({ data }) => {
         <FeaturePosts featurePosts={featuredPostData} />
         <RecentPosts recentPosts={recentPostData} />
         <Pagination next="/page/2" />
+        <Newsletter />
       </Layout>
     </>
   );
