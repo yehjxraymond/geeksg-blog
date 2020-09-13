@@ -23,18 +23,22 @@ Decentralized finance has been quite the hype for the past few months and I've f
 
 Yield farming is one of the must-do in the defi space right now. The concept allows one to stake some token, usually liquidity providers' tokens, in a smart contract and be rewarded some native tokens for it. There are multiple forks and clones of farming applications. To list a few:
 
-- Sushiswap
-- Kimbap.finance
-- Ulu.finance
-- Pickle.finance
+- [Sushiswap](https://sushiswap.org/)
+- [Kimbap.finance](http://kimbap.finance/)
+- [Ulu.finance](https://ulu.finance/)
+- [Pickle.finance](http://pickle.finance/)
 
-In the case of an application like Kimbap.finance, you can deposit Uniswap's liquidity provider tokens and be rewarded \$KIMBAP as you continue to hold the liquidity token within the kimbap's masterchef contract.
+Over the last two weeks, I've tried farming on various apps and realized they are all the same. 
+
+This is my story on Kimbap.finance...
 
 ### Farming Inc.
 
 ![Dashboard of a defi farming application](../../static/images/defi-farming-dashboard.png)
 
-Seeing a Kimbap farm for the first time was daunting for me. Lots of questions were going through my head then:
+In the case of an application like Kimbap, you can deposit Uniswap's liquidity provider tokens and be rewarded \$KIMBAP as you continue to hold the liquidity token within the kimbap's masterchef contract.
+
+Seeing a "farm" for the first time was daunting for me. Lots of questions were going through my head then:
 
 1. The annual percentage yields are over 1,000% are they real?
 2. How do I get the token required to put it in this farm?
@@ -133,5 +137,7 @@ Here are some tips to not be the yield:
 1. Never buy a native token. The price will always return to zero in the long run.
 1. Never buy into a new type of farm. New farms tend to be forks of previous 'successful' farms.
 1. Always check the permissions of the smart contract controller. Even previously safe farms might be dangerous when permissions are misconfigured.
+
+---
 
 Ps. Following this set of rules strictly over the next few days, my portfolio has since crawled out of the reds.
