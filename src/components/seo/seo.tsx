@@ -47,9 +47,9 @@ export const SEO: React.FunctionComponent<SEO> = ({
   );
 
   const imagePath = image
-    ? image.includes("http")
+    ? image.startsWith("http://") || image.startsWith("https://")
       ? image
-      : join(siteMetadata.siteUrl, image)
+      : new URL(image, siteMetadata.siteUrl).href
     : undefined;
 
   const metaDescription = description || siteMetadata.description;
