@@ -142,7 +142,9 @@ The risk associated with projects ran by unknown developers are the largest in m
 
 While one can say that code is law on the blockchain, it may not be enough to justify for the risk on trusting an unknown developer. I have seen cases where legitimate smart contract codes from audited projects can be misused by their contract deployer to steal funds from participants. 
 
-There is a lot of due diligence needed when dealing with projects ran by unknown developers, of which will be covered by subsequent posts on due diligence. In addition, I will be working on a series on "How I steal your funds" to show you how some innocent looking smart contracts can be used to steal your funds. [Subscribe](https://geek.us2.list-manage.com/subscribe?u=bfcc21792349f4f0eaff4a2a3&id=694896a0df) to my mailing list to be the first to receive them.
+There is a lot of due diligence needed when dealing with projects ran by unknown developers, of which will be covered by subsequent posts on due diligence. In addition, I will be working on a series on "How I steal your funds" to show you how some innocent looking smart contracts can be used to steal your funds.
+
+[Subscribe](https://geek.us2.list-manage.com/subscribe?u=bfcc21792349f4f0eaff4a2a3&id=694896a0df) to my mailing list to be the first to receive them.
 
 #### Centralized Teams
 
