@@ -111,7 +111,7 @@ In the case of MakerDao, participants may borrow against certain pledged collate
 
 ![Leveraging in COMP mining](../../static/images/leveraged-comp-mining.png)
 
-> #YOLO
+> &#35;YOLO
 
 In the case of Compound, "smart" Defi investors learnt that they could in theory [recursively borrow against supplied collateral](https://thedefiant.substack.com/p/comp-frenzy-continues-with-leveraged-2aa) to maximize on the COMP token reward. These investors are essentially in leveraged position where they are more likely to be liquidated at a loss if the value of collateral falls just slightly. 
 
