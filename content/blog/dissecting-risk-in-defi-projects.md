@@ -93,7 +93,9 @@ In a simple case where one converts USD to ETH to lend ETH on Compound, the user
 
 > A 100% price increment only cause ~5% of loss… But, did anyone ever looked at the left side of the curve?
 
-In a slightly more complex case a user can converts USD to both ETH and DAI to become a liquidity provider on Uniswap exchange. On top of gaining exposure on ETH and DAI, he will be further penalized on the change in relative price of ETH to DAI due to the mechanics of the bonding curve. This phenomenon where liquidity provider might end up with less than what they have put in is often misleading termed as impermanent loss but is [far from the truth](https://cointelegraph.com/news/report-impermanent-loss-on-uniswap-and-other-amms-is-always-permanent). Investors need to account for the possibilities that vegetable coins may not ever return to the same relative pricing against stablecoins when providing liquidity for such pairs. 
+In a slightly more complex case a user can converts USD to both ETH and DAI to become a liquidity provider on Uniswap exchange. On top of gaining exposure on ETH and DAI, he will be further penalized on the change in relative price of ETH to DAI due to the mechanics of the bonding curve. This phenomenon where liquidity provider might end up with less than what they have put in is often misleading termed as impermanent loss but is [far from the truth](https://cointelegraph.com/news/report-impermanent-loss-on-uniswap-and-other-amms-is-always-permanent). 
+
+Investors need to account for the possibilities that vegetable coins may not ever return to the same relative pricing against stablecoins when providing liquidity for such pairs. 
 
 ## Liquidity Risk
 
