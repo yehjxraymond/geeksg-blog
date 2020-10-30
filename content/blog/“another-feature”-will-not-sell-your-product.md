@@ -47,13 +47,11 @@ Then he continued: “The only problem was that this printer was not using a sta
 
 ![Standard printer cable](../../static/images/standard-printer-cable.png)
 
-> AB Cable by [Amazon.com](https://www.amazon.com/AmazonBasics-USB-2-0-Cable-Male/dp/B00NH11KIK)
-
 You thought you have heard enough of how ridiculous that sound but the salesman continued: “They thought it will be good if your cables could be used for other printers in the future…”
 
 Thinking hard about how ridiculous that sounded, you know there’s only three possibilities here:
 
-# This first is that your printer sucks.
+## This first is that your printer sucks.
 
 For some reason, your printers is not delivering the wow factor you initially thought they would.
 
@@ -63,7 +61,7 @@ The cable was simply a distraction for something more problematic.
 
 If this is the case, it is likely you have to go back to the drawing board and really start asking what does the users want, and actually ask them. When you do, make sure you follow up with a series of “why”s to understand what they truly desire.
 
-# The second possibility is that the salesman sucks.
+## The second possibility is that the salesman sucks.
 
 The printer you’ve created is the first in the world to actually does it job well, there is no reason why it should under-perform.
 
@@ -71,7 +69,7 @@ It is possible that the product is left with someone who is unable to sell it.
 
 Perhaps the sales person is getting a fatter cheque selling another printer? Perhaps he is also in the business of selling AB cables? Or maybe he is just plain incompetent? We won’t know.
 
-# The third possibility is that the customer is simply not looking for a printer.
+## The third possibility is that the customer is simply not looking for a printer.
 
 To the customer who is in the shop looking to buy a fridge, the printer is simply a solution looking for a problem.
 
@@ -86,7 +84,5 @@ You don’t want a feature to become a distraction from delivering true value to
 Rather than designing your products around features, try designing them around value.
 
 ![Elements of value chart](../../static/images/elements-of-value.png)
-
-Elements of Value by [Bain.com](https://media.bain.com/elements-of-value/)
 
 For that I’ll suggest reading the [elements of value](https://hbr.org/2016/09/the-elements-of-value) or try out this [interactive version of elements of value](https://media.bain.com/elements-of-value/#).
