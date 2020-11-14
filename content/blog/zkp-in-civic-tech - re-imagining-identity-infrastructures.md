@@ -97,6 +97,7 @@ In a following blog post, I will take a deep dive into how we can build a POC us
 
 **Additional Readings**
 
+* [Introduction to Zero-Knowledge Proof](https://www.youtube.com/watch?v=ewUs2fqBGhI)
 * [ZKProof Community Reference](https://docs.zkproof.org/reference.pdf)
 * [Semaphore Spec](https://github.com/appliedzkp/semaphore/blob/master/spec/Semaphore%20Spec.pdf)
 
