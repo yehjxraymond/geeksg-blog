@@ -7,7 +7,7 @@ description: With interest rates (or yield, or APY) over 100% on every other
   in Defi projects. In this post, I will explain breakdown different components
   of risk associated with Defi products, using models and theories borrowed from
   business finance. 
-featured: true
+featured: false
 img: ../../static/images/danger.png
 imgAlt: Do you know the risk?
 tags:
