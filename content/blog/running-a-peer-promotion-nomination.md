@@ -26,19 +26,25 @@ During each promotion nomination cycle, the team will run an election where all 
 
 ### The Guiding Principles
 
-1. **Myth**: A responsible, competent and hardworking peer who performs at current level should be promoted.
+(1)
+
+**Myth**: A responsible, competent and hardworking peer who performs at current level should be promoted.
 
 **Truth**: We should only promote people who can perform at a higher grade. Promoting someone who is responsible, competent and hardworking person, yet unable to take on *increased responsibilities* at higher grade causes Peter’s Principle. Let’s not sabo your peer by promoting him/her to incompetence. See <https://en.wikipedia.org/wiki/Peter_principle.>
 
 Promotion means *increased expectation* and *additional responsibilities.* Unlike merit increment and bonuses, promotion is not a reward but a responsibility to bear, in the service of the team.
 
-2. **Myth**: You need to be promoted before you take on that *additional* responsibility
+(2)
+
+**Myth**: You need to be promoted before you take on that *additional* responsibility
 
 **Truth**: When you consistently perform above your current grade, your peers know you are ready to be promoted.
 
 **Ask**: Who’s taking on more responsibilities than others of similar grade? Who is already performing at a higher grade?
 
-3. **Myth:** Anyone can be promoted as long as he is good at his work, regardless of his/her behavior.
+(3)
+
+**Myth:** Anyone can be promoted as long as he is good at his work, regardless of his/her behavior.
 
 **Truth**: Promotion sends a very strong signal about the desired behavior from the team. So let’s **NOT** promote the wrong behavior.
 
