@@ -52,7 +52,7 @@ Promotion means *increased expectation* and *additional responsibilities.* Unlik
 
 ### The Election Mechanics
 
-The election will be ran using quadratic voting. In quadratic voting, voters are given a set of credits, in our case 99 credits. Voters are free to choose how they will like to allocate the credits to vote for different candidates. Voters may choose to allocate **more than one vote**, or even **negative votes** to an individual.
+The election will be run using quadratic voting. In quadratic voting, voters are given a set of credits, in our case 99 credits. Voters are free to choose how they will like to allocate the credits to vote for different candidates. Voters may choose to allocate **more than one vote**, or even **negative votes** to an individual.
 
 The voting credits consumed will be proportional to the number of vote a candidate is allocated. For instance:
 
