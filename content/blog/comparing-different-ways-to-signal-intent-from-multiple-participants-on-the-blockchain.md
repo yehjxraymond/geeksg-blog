@@ -65,7 +65,7 @@ This is particularly useful when observing that a transaction originates from a 
 
 Useful scenario:
 
-- A shipping line issuing a [TradeTrust]()https://tradetrust.io/ Transferable Record only after the clerk keys in the information, the manager review it and the director approves it in their internal software.
+- A shipping line issuing a [TradeTrust](https://tradetrust.io/) Transferable Record only after the clerk keys in the information, the manager review it and the director approves it in their internal software.
 - A bank issuing a loan approval letter after having the loan processed in different departments, some only used for loans with higher loan quantum.
 
 Pros
