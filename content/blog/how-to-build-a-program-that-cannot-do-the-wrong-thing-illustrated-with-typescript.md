@@ -18,7 +18,7 @@ tags:
   - typescript
   - code kata
 ---
-As a junior developer I was very concerned about getting things done. With any task, how to make things work concerned me the most. Learning to do test driven development (TDD) comes a long way to help me make sure the code works as I intended - for both positive and negative examples. However, as I come across the "Representable/Valid Principle" introduced in [James Koppel's Advanced Software Design Web Course](https://jameskoppelcoaching.com/advanced-software-design-web-course/), I found out that I can write code that that not just does the right thing but also can't do the wrong thing.
+As a junior developer, I was very concerned about getting things done. With any task, how to make things work concerned me the most. Learning to do test-driven development (TDD) comes a long way to help me make sure the code works as I intended - for both positive and negative examples. However, as I come across the "Representable/Valid Principle" introduced in [James Koppel's Advanced Software Design Web Course](https://jameskoppelcoaching.com/advanced-software-design-web-course/), I found out that I can write code that not just does the right thing but also can't do the wrong thing.
 
 ## It starts with representable states
 
@@ -62,7 +62,7 @@ const donkeySetting: Setting = {
 };
 ```
 
-It's also possible that we set the water waterTemperature on the `Spin Only` mode which doesn't use water at all:
+It's also possible that we set the water temperature on the `Spin Only` mode which doesn't use water at all:
 
 ```ts
 const saunaSetting: Setting = {
@@ -125,13 +125,13 @@ There are also some nice things that comes with this type definition, for exampl
 
 ![Auto-completion of properties](../../static/images/autocomplete-properties-with-union-values.png "Auto-completion of properties")
 
-And, developers will receive a compile time error when attempting to construct an invalid state:
+And, developers will receive a compile-time error when attempting to construct an invalid state:
 
 ![Invalid states cannot be represented](../../static/images/cannot-represent-invalid-state.png "Invalid states cannot be represented")
 
 ## How not to be wrong in more scenarios
 
-Of course, we all know that Typescript only enforces the types on compile time and it's offers no protection during runtime against invalid states (ie from client POST request). So how might we have runtime validation too?
+Of course, we all know that Typescript only enforces the types on compile-time and it's offers no protection during runtime against invalid states (ie from client POST request). So how might we have runtime validation too?
 
 We can represent the same state space using runtypes as well!
 
@@ -182,13 +182,13 @@ In this example, we create the same `WashSetting` type definition by generating 
 
 ![Generated types from runtype](../../static/images/generated-types-from-runtypes.png "Generated types from runtype")
 
-At the same time, we also have the `WashSettingRT` object which can be used to validate any inputs, allowing it to throw an descriptive error about the inputs should the input validation fail. Should the input passes the check, the returned value will also receive a [typeguard](https://www.typescriptlang.org/docs/handbook/advanced-types.html). This should be used in places where we can expect inputs that may represent invalid states in runtime such as in `requestHandler` function.
+At the same time, we also have the `WashSettingRT` object which can be used to validate any inputs, allowing it to throw a descriptive error about the inputs should the input validation fail. Should the input passes the check, the returned value will also receive a [typeguard](https://www.typescriptlang.org/docs/handbook/advanced-types.html). This should be used in places where we can expect inputs that may represent invalid states in runtime such as in `requestHandler` function.
 
 ## And you can still be wrong...
 
 In the examples above, we took great effort to reduce the representable state space in compile-time and subsequently during runtime, but even so, the program can still be wrong!
 
-* What if the temperature can only be between 30°C to 70°C in increment of 10°C?
-* What if the spin speed can only be either 1200, 1400 or 1600 rpm?
+* What if the temperature can only be between 30°C to 70°C in increments of 10°C?
+* What if the spin speed can only be either 1200, 1400, or 1600 rpm?
 
 Take a stab at further reducing the state space so that invalid states cannot be represented!
