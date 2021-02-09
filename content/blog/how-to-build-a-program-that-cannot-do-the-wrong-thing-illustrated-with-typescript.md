@@ -191,4 +191,4 @@ In the examples above, we took great effort to reduce the representable state sp
 * What if the temperature can only be between 30°C to 70°C in increment of 10°C?
 * What if the spin speed can only be either 1200, 1400 or 1600 rpm?
 
-Take a stab at further reducing the state space so that invalid states such as -274°C cannot be represented!
+Take a stab at further reducing the state space so that invalid states cannot be represented!
