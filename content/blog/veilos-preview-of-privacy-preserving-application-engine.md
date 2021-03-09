@@ -103,9 +103,11 @@ Finally, should anyone else other than the beneficiaries attempt to generate a v
 
 ### Organisation Whistleblowing
 
-> Identity Group: Foreign Workers Employed in Singapore\
-> Topic: Whistleblowing_2020Q1\
-> Message: Unserviced equipments at site #1234
+```
+Identity Group: Foreign Workers Employed in Singapore
+Topic: Whistleblowing_2020Q1
+Message: Unserviced equipments at site #1234
+```
 
 Since the application does not reveal the identity of the voucher generator other than the fact that he is a member of a group, it can be used for different whistleblowing schemes.
 
@@ -116,9 +118,11 @@ Discussed in a previous memo, this can be used for cases like:
 
 ### Elections
 
-> Identity Group: Citizens of US\
-> Topic: US_PRESIDENTIAL_ELECTION_2020\
-> Message: Joe Biden
+```
+Identity Group: Citizens of US
+Topic: US_PRESIDENTIAL_ELECTION_2020
+Message: Joe Biden
+```
 
 Similarly, the message on the voucher can also be used to signal support for a candidate in an election or a proposal on a referendum.
 
@@ -129,9 +133,11 @@ Use cases that are similar:
 
 ### Credit Card Privileges
 
-> Identity Group: Citibank PremierMiles Card Holders\
-> Topic: AIRPORT_LOUNGE_ACCESS_2020_P1\
-> Message: SATS Premier Lounge
+```
+Identity Group: Citibank PremierMiles Card Holders
+Topic: AIRPORT_LOUNGE_ACCESS_2020_P1
+Message: SATS Premier Lounge
+```
 
 The vouchers can also be used to coordinate privileges of credit card (or any privilege card or membership card) holder. In the example above, credit card holders can generate vouchers in exchange for lounge access without sharing their identity with the lounge operators. In addition, credit card companies can easily enforce the limits on number of lounge access (and therefore their liabilities) across multiple lounge operators.
 
@@ -139,9 +145,11 @@ This can also give rise to more interesting product offerings by these companies
 
 ### Rationing
 
-> Identity Group: Citizens of Singapore\
-> Topic: MASK_COLLECTION_ROUND_3\
-> Message: Hougang CC
+```
+Identity Group: Citizens of Singapore
+Topic: MASK_COLLECTION_ROUND_3
+Message: Hougang CC
+```
 
 Finally, as the name *voucher* suggest, it can be used to exchange for goods & services that are rationed. Some potential use cases:
 
@@ -153,9 +161,11 @@ Other than conventional goods & services, the voucher can be used to exchange fo
 
 For instance P2P selling platforms (such as Craigslist or Carousell) can allow users to exchange a voucher to register for an account on their platform:
 
-> Identity Group: Citizens of Singapore\
-> Topic: CAROUSELL_ACCOUNT\
-> Message: <username>
+```
+Identity Group: Citizens of Singapore
+Topic: CAROUSELL_ACCOUNT
+Message: <username>
+```
 
 This will enforce that a user is a citizen of Singapore and that he may only possess at most one account without revealing more information such as name, age, personal ID, etc.
 
@@ -167,20 +177,15 @@ If you would like to try VeilOS out right now, you may assume the identity of an
 
 One hundred identities are generated and inserted into that group. You may import any of the identities below to start playing with VeilOS:
 
-`["8627ec100eaa0708d98596f8177cb8019dfe45880ebdb2acd8c5e3479a7f296d","c8324bf5a24d745bebe19c17804c811bf192ad3863f4f28cf12e5e555a0423","d51f8dfbf45f32707b6c937e5e44dcacc8379139cadeb78183ffac3871590b"]
-`
+`["8627ec100eaa0708d98596f8177cb8019dfe45880ebdb2acd8c5e3479a7f296d","c8324bf5a24d745bebe19c17804c811bf192ad3863f4f28cf12e5e555a0423","d51f8dfbf45f32707b6c937e5e44dcacc8379139cadeb78183ffac3871590b"]`
 
-`["b1dc417154ce705d5154149e0761e4fae23ea35b57ee7837a21fd9f7a86d7d49","6ac46c54f5321af93f2e0cdc323e6bb82558f6a578fb94ac7533d72b8af486","9037f4721af3fd1e84ca786d0858edf78d6c3adbbccf794170cc09b7d78b41"]
-`
+`["b1dc417154ce705d5154149e0761e4fae23ea35b57ee7837a21fd9f7a86d7d49","6ac46c54f5321af93f2e0cdc323e6bb82558f6a578fb94ac7533d72b8af486","9037f4721af3fd1e84ca786d0858edf78d6c3adbbccf794170cc09b7d78b41"]`
 
-`["841c0f10254a5b2709d608ab6572114d5d02082b52940578ab66102b56ade662","bd12046b58392888925be6ba3c6686a7f40596146bd3e5866683215593057","b987394343c1c92b5de45a2e7e9e4b68ad99f5d2ca99c8b804caae09906bdd"]
-`
+`["841c0f10254a5b2709d608ab6572114d5d02082b52940578ab66102b56ade662","bd12046b58392888925be6ba3c6686a7f40596146bd3e5866683215593057","b987394343c1c92b5de45a2e7e9e4b68ad99f5d2ca99c8b804caae09906bdd"]`
 
-`["ee75466ae2f33e9e01b7522bce593bf2a2936dafcb67ee9fc0e987f59505465e","ba5a1e11bac13b1ff768d4ca150538dc9ac708150c74ee9f37dd7dde3986e4","bf68083685682c962d77f9be60638b3c4f6d0c135c3eca3605b72bb4dc0458"]
-`
+`["ee75466ae2f33e9e01b7522bce593bf2a2936dafcb67ee9fc0e987f59505465e","ba5a1e11bac13b1ff768d4ca150538dc9ac708150c74ee9f37dd7dde3986e4","bf68083685682c962d77f9be60638b3c4f6d0c135c3eca3605b72bb4dc0458"]`
 
-`["6d689be1ba8b7fc5d4a6d9f1a163490d47b035e7c7b639398f196089a1972a1f","62a92d1dd8fba3309b7c2e37eb0232f17d2693322dded6f382847de412b122","e821486ec65bef9b5cf93a9585c0d4a288605e12c7c77df7d1f90bf26851f0"]
-`
+`["6d689be1ba8b7fc5d4a6d9f1a163490d47b035e7c7b639398f196089a1972a1f","62a92d1dd8fba3309b7c2e37eb0232f17d2693322dded6f382847de412b122","e821486ec65bef9b5cf93a9585c0d4a288605e12c7c77df7d1f90bf26851f0"]`
 
 \*You will be able to create your own identity group, generate your own identity and add identities to your own group when more features are rolled out.
 
