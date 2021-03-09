@@ -75,7 +75,7 @@ In this example, the VeilOS application ensures:
 
 ![Identity Card of User](../../static/images/veilos-identity-card.png "Identity Card of User")
 
-While each beneficiary will register with the government agency with their identity card showing their public identity (in this case `5250887317885314878170299310585808682203354203924329162758682586025860956143`) during registration, these identifiers are never published on the generated voucher.
+While each beneficiary will register with the government agency with their identity card showing their public identity (in this case 5250887317885314878170299310585808682203354203924329162758682586025860956143) during registration, these identifiers are never published on the generated voucher.
 
 ![Voucher content with ZKP](../../static/images/veilos-voucher-content.png "Voucher content with ZKP")
 
@@ -94,8 +94,6 @@ This is achieved by comparing the `nullifier` value of the vouchers as the nulli
 ### Only available to beneficiaries in the group
 
 ![Error for unauthorized voucher generation](../../static/images/veilos-only-identity-group.png "Error for unauthorized voucher generation")
-
-I should probably work on the error message, but you get the point…
 
 Finally, should anyone else other than the beneficiaries attempt to generate a voucher, they will fail to generate a valid `proof` for the voucher.
 
