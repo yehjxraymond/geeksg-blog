@@ -38,6 +38,7 @@ export const Newsletter: FunctionComponent = () => {
                 type="text"
                 name="b_bfcc21792349f4f0eaff4a2a3_694896a0df"
                 value=""
+                readOnly
               ></input>
               <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
                 <button className="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-400 focus:outline-none focus:bg-indigo-400 transition duration-150 ease-in-out">
