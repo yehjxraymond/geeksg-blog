@@ -3,6 +3,7 @@ import { format } from "date-fns";
 import Image, { FluidObject } from "gatsby-image";
 import { Layout } from "../layout";
 import { Newsletter } from "../newsletter";
+
 interface BlogPost {
   title: string;
   tags: string[];

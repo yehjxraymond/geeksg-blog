@@ -32,7 +32,7 @@ export const PostListItem: FunctionComponent<PostSnippet> = ({
               {title}
             </h3>
           </a>
-          <div className="text-sm leading-5 font-medium text-indigo-600">
+          <div className="text-sm leading-5 font-medium text-indigo-600 break-all">
             {tags.map((tag, index) => (
               <span key={index} className="mr-4">
                 <a href={`/tags/${tag}`} className="hover:underline">
