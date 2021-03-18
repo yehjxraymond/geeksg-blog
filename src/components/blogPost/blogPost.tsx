@@ -44,8 +44,8 @@ export const BlogPost: FunctionComponent<BlogPost> = ({
           <div className="text-center my-2 text-gray-500">{imgAlt}</div>
         )}
         <div className="flex justify-center">
-          <div className="max-w-screen-lg">
-            <div className="prose sm:prose-lg md:prose-xl text-gray-700">
+          <div className="sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg max-w-full">
+            <div className="prose sm:prose-lg md:prose-xl text-gray-700 break-words">
               {children}
             </div>
           </div>
