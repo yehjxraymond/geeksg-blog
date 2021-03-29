@@ -7,7 +7,7 @@ description: Decentralized finance has been quite the hype for the past few
   months and I've finally decided to get my feet wet two weeks ago after my
   friend repeatedly prompted me to. Here's what I've learned after losing ~$5000
   on yield farming.
-featured: true
+featured: false
 img: ../../static/images/farm-tractor.png
 imgAlt: Decentralized finance has just redefined "farming"
 tags:
