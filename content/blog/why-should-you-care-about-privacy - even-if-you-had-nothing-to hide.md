@@ -27,7 +27,7 @@ Perhaps you didn’t want them to know that you are dating, for fear that they m
 
 Perhaps you think that they may not see beyond the full body tattoo of your boyfriend into his beautiful heart.
 
-Perhaps you didn’t want them to know that you’ve quit your nine-to-five job because you utterly hate who you are and would rater be a part time barista to tide through the difficult time you had with yourself.
+Perhaps you didn’t want them to know that you’ve quit your nine-to-five job because you utterly hate who you are and would rather be a part time barista to tide through the difficult time you had with yourself.
 
 It’s time to acknowledge that we are all different. Different from our parents, our siblings, our spouse, what society thinks of us, and even what our children thinks of us.
 
@@ -57,7 +57,7 @@ Edward Snowden remarked that “Arguing that you don’t care about the right to
 
 I’ll add that “Arguing that you don’t care about the right to free speech because you have nothing to say is no different than saying you don’t care about the rights to your own thoughts and opinion because you are not opinionated”.
 
-Living in politically stable countries, we forget that there were time that people were persecuted because of their differences in beliefs. We do not have to look back into history to the likes of Nazi Party to relief such experience. Simply look towards the east [where civilians were killed for their demand for a return to democracy in Myanmar](https://www.channelnewsasia.com/news/asia/myanmar-protests-continue-a-day-after-more-than-100-killed-14510698).
+Living in politically stable countries, we forget that there were time that people were persecuted because of their differences in beliefs. We do not have to look back into history to the likes of Nazi Party to relieve such experience. Simply look towards the east [where civilians were killed for their demand for a return to democracy in Myanmar](https://www.channelnewsasia.com/news/asia/myanmar-protests-continue-a-day-after-more-than-100-killed-14510698).
 
 Keeping your privy parents away from your phone to allow you to form independent opinions about your sexuality, interests, career and choice of partner. Couple that freedom to think with the freedom to gather and to act, you can go forth to lead a life that you truly owned and forged.
 
