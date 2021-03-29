@@ -61,7 +61,9 @@ Living in politically stable countries, we forget that there were time that peop
 
 Keeping your privy parents away from your phone to allow you to form independent opinions about your sexuality, interests, career and choice of partner. Couple that freedom to think with the freedom to gather and to act, you can go forth to lead a life that you truly owned and forged.
 
-Why is it that we give up our agency to internet companies and governments? Why is it okay for Facebook & Instagram to tell me what I should like, do, buy [or even think](https://www.nytimes.com/2018/03/17/us/politics/cambridge-analytica-trump-campaign.html) based on data I shared, content I interacted with, or even private conversations. Why is it okay for your government to decide where to draw the line between fake news and possible intelligence, and [prosecute people who could potentially be honest whistle-blowers](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7445730/)?
+So if we expect the freedom of choice from our parents, why is it that we give up our agency to internet companies and governments?
+
+Why is it okay for Facebook & Instagram to tell me what I should like, do, buy [or even think](https://www.nytimes.com/2018/03/17/us/politics/cambridge-analytica-trump-campaign.html) based on data I shared, content I interacted with, or even private conversations. Why is it okay for your government to decide where to draw the line between fake news and possible intelligence, and [prosecute people who could potentially be honest whistle-blowers](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7445730/)?
 
 To give up privacy is not simply surrendering your ability to act independently and make your own free choices. It is also maintaining a blind faith that no one, individuals, society, or governments, will wield your information as a weapon against [you and your family and friends](https://www.radicalxchange.org/concepts/intersectional-social-identity/) in the future.
 
