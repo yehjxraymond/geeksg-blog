@@ -4,7 +4,7 @@ title: Passive Investing Strategies with Cryptocurrency
 publishedDate: 2020-11-29T06:44:59.855Z
 description: You have purchased your first Bitcoin or Ether, now what? In this
   post I’ll share some of my favorite ways of making the cryptos work for me.
-featured: true
+featured: false
 img: ../../static/images/beach-cocktail.png
 imgAlt: Take a sip while your cryptocurrencies do the work
 tags:
