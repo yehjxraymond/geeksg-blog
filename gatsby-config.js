@@ -116,5 +116,11 @@ module.exports = {
         includeInDevelopment: false,
       },
     },
+    {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `geeksg`,
+      },
+    },
   ],
 };

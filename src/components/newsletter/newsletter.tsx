@@ -3,7 +3,7 @@ import React, { FunctionComponent } from "react";
 export const Newsletter: FunctionComponent = () => {
   return (
     <div className="bg-white">
-      <div className="max-w-screen-xl mx-auto px-4 py-12 sm:px-6 lg:py-16 lg:px-8">
+      <div className="max-w-screen-xl mx-auto px-4 py-2 sm:px-6 lg:py-4 lg:px-8">
         <div className="px-6 py-6 bg-gray-800 rounded-lg md:py-12 md:px-12 lg:py-16 lg:px-16 xl:flex xl:items-center">
           <div className="xl:w-0 xl:flex-1">
             <h2 className="text-2xl leading-8 font-extrabold tracking-tight text-white sm:text-3xl sm:leading-9">
