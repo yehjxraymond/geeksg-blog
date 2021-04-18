@@ -7,6 +7,9 @@ import { SEO } from "../../components/seo";
 interface QueryData {
   markdownRemark: {
     html: string;
+    fields: {
+      slug: string;
+    };
     frontmatter: {
       title: string;
       tags: string[];
@@ -79,6 +82,7 @@ interface Page {
 export const Page: FunctionComponent<Page> = ({ data }) => {
   const {
     markdownRemark: {
+      fields: { slug },
       html,
       frontmatter: {
         title,
@@ -99,6 +103,7 @@ export const Page: FunctionComponent<Page> = ({ data }) => {
       <BlogPost
         title={title}
         tags={tags}
+        slug={slug}
         img={img}
         imgAlt={imgAlt}
         publishedDate={new Date(publishedDate)}

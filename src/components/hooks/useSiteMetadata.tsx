@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from "gatsby";
 interface SiteMetadata {
   title: string;
   description: string;
+  siteUrl: string;
 }
 
 export const useSiteMetadata = (): SiteMetadata => {
@@ -13,6 +14,7 @@ export const useSiteMetadata = (): SiteMetadata => {
           siteMetadata {
             title
             description
+            siteUrl
           }
         }
       }
