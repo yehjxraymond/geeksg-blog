@@ -28,7 +28,7 @@ Symbolic execution is a method of executing a program abstractly so that it cove
 Take for instance the following smart contract code implementing a single view-only function `fn` .
 
 ```
-pragma solidity ^0.6.0;
+pragma solidity ^0.5.0;
 contract SimpleContract {
     function fn(uint a) public view returns (uint){
        if(a == 1337) {
@@ -63,7 +63,7 @@ A developer writing test for the above contract will probably write the followin
 The problem with this approach is that the test does not ensure that the program does not do the wrong thing! Those 3 tests will continue to pass for the following contract which has a completely different meaning:
 
 ```
-pragma solidity ^0.6.0;
+pragma solidity ^0.5.0;
 contract SimpleContract {
     function fn(uint a) public view returns (uint){
        if(a == 1337) {
