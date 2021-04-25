@@ -18,6 +18,7 @@ tags:
   - portfolio-allocation
   - ethereum
   - farming
+  - finance
 ---
 Yield farming is the newest kid around the block in the decentralized finance (Defi) space right now. With interest rates (or yield, or APY) over 100% on every other projects, one might overlook the level of risk associated with investing in Defi projects.
 

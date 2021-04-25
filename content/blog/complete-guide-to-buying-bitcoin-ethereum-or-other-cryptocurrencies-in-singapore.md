@@ -17,6 +17,7 @@ tags:
   - cryptocurrency
   - defi
   - review
+  - finance
 ---
 Buying bitcoin, ethereum or other cryptocurrencies has gotten easier since the first time I bought them. Many exchanges have popped up and consumers are now spoilt for choice. One thing that didn't change much was the extensive know-your-customer (KYC) processes before you can even buy your first crypto. In this guide, I'll compare some of the exchanges accepting SGD and help you select one based on your profile.
 
