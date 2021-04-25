@@ -16,6 +16,7 @@ tags:
   - farming
   - passive
   - finance
+  - blockchain
 ---
 You have purchased your first Bitcoin or Ether, now what?
 

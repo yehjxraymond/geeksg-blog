@@ -13,6 +13,18 @@ const menuItems: MenuItem[] = [
     href: "/",
   },
   {
+    label: "Personal Finance",
+    href: "/tags/finance",
+  },
+  {
+    label: "Blockchain",
+    href: "/tags/blockchain",
+  },
+  {
+    label: "Buy Cryptocurrency",
+    href: "/blog/complete-guide-to-buying-bitcoin-ethereum-or-other-cryptocurrencies-in-singapore",
+  },
+  {
     label: "Tools",
     dropdownItems: [
       {
