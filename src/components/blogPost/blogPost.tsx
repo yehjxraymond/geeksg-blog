@@ -38,7 +38,7 @@ export const BlogPost: FunctionComponent<BlogPost> = ({
           {tags.map((tag, index) => (
             <span
               key={index}
-              className="text-sm leading-5 font-medium text-indigo-600 mx-2"
+              className="text-sm leading-5 font-medium text-indigo-600 mx-2 inline-block"
             >
               <a href={`/tags/${tag}`}>#{tag}</a>
             </span>
