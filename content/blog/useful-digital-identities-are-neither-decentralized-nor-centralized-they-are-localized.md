@@ -20,8 +20,6 @@ tags:
   - design
   - tradetrust
 ---
-- - -
-
 Self-Sovereign Identity (SSI) platforms are emerging from the decentralization movement citing how they will replace the traditional Public Key Infrastructure (PKI) model where Certificate Authorities (CAs) are in charge of controlling the identities, but that will not be the case unless our society becomes more egalitarian. Until then, a hybrid of centralized and decentralized identity systems that are localized shall prevail.
 
 The innovation of SSI ends at where users are allowed to generate their identifier which is often the public key of an asymmetric key pair. An example of such an identifier is `did:ethr:0x63b4f3e3fa4e438698ce330e365e831f7ccd1ef4` using the Ethereum address as a self-managed decentralized identifier.
