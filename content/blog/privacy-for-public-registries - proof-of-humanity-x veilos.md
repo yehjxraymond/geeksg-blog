@@ -17,7 +17,6 @@ tags:
   - proof-of-humanity
   - cryptography
   - identity
-  - ""
 ---
 - - -
 
