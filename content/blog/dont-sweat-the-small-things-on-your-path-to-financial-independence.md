@@ -6,7 +6,7 @@ description: You’ve probably read many articles about ditching the $5 coffee,
   getting the right brokerage, bank, utility account, etc, and buying the right
   stocks. This article will tell you if you want to reach financial
   independence, ignore those articles.
-featured: true
+featured: false
 img: ../../static/images/journey-on-bus.png
 imgAlt: Financial independence is a journey, not a destination
 tags:
