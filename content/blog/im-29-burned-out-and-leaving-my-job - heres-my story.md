@@ -100,9 +100,11 @@ I realized that I care a lot more about mental wellbeing — which is why I chos
 
 With these callings, I’m now working on helping companies create a safe space for employees to talk about their mental well-being — to help prevent more of v1.0 Raymond from quitting their jobs after a burnout.
 
-If you are currently in employment feeling the symptoms and want to help me in my research (all meeting details will be kept confidential), [do contact me](https://geek.sg/contact/).
+If you are currently in employment feeling the symptoms and want to help me in my research (all meeting details will be kept confidential), [do contact me](https://forms.clickup.com/f/3prge-208/DOS635G13OF2JD1937).
 
-If you are an HR manager for your organization or a caring manager for your team and want to create a more empathetic & conducive working environment (and fix your employee retention rate), [do contact me](https://geek.sg/contact/).
+If you are an HR manager for your organization or a caring manager for your team and want to create a more empathetic & conducive working environment (and fix your employee retention rate), [do contact me](https://forms.clickup.com/f/3prge-208/DOS635G13OF2JD1937).
+
+If you are a UX researcher who is interested in assisting with the research, [do reach out](https://forms.clickup.com/f/3prge-208/DOS635G13OF2JD1937).
 
 If you know of someone who needs to read this, send this article to them.
 
