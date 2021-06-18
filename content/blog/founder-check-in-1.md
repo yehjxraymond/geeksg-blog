@@ -65,11 +65,9 @@ From the perspective of the individual, there may be less stigma from the utiliz
 
 I’ll be validating my hypothesis by speaking to companies in the range of 60–150 full-time employees in Asia and US to find out more about how they approach employee assistance and employee benefits.
 
-It will be great if you can connect me with HR leaders or the CEO of companies of that size for the research.
+It will be great if you can [connect me](https://geek.sg/contact/) with HR leaders or the CEO of companies of that size for the research.
 
 - - -
-
-Footnotes
 
 The market size for EAP is around [3.5bn in US](https://www.ibisworld.com/industry-statistics/market-size/employee-assistance-program-services-united-states/) and in Asia [around 3.4bn in Asia](https://hrmasia.com/asias-corporate-wellness-market-to-more-than-double-by-2024/). The wellness market is expected to grow to 7.4bn in Asia by 2024.
 
