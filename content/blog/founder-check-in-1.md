@@ -38,7 +38,7 @@ During this time, I’ve also spoken to 30+ individuals who have experienced bur
 * Many feel uncomfortable sharing their stories, even anonymously, on a new platform and will want to observe how safe is the platform before interacting with it
 * Many feedback that unless their work environment change, no amount of counseling or other types of treatment
 
-Also, during the same time, I’ve experienced firsthand(from responses ) how being anonymous can empower malicious actors. Additionally, from the corporate point of view liability can also become a huge issue as seen from [this reddit thread](https://www.reddit.com/r/humanresources/comments/mqic5q/ca_seeking_feedback_on_a_tool_cypherchat_that/).
+Also, during the same time, I’ve experienced firsthand(from responses to [my burnout story](https://geek.sg/blog/im-29-burned-out-and-leaving-my-job%E2%80%8A-%E2%80%8Aheres-my%C2%A0story)) how being anonymous can empower malicious actors. Additionally, from the corporate point of view liability can also become a huge issue as seen from [this reddit thread](https://www.reddit.com/r/humanresources/comments/mqic5q/ca_seeking_feedback_on_a_tool_cypherchat_that/).
 
 I learn that organizations will not pay for something that could potentially blow up in their face.
 
