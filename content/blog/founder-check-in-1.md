@@ -61,7 +61,7 @@ From the perspective of the individual, there may be less stigma from the utiliz
 
 ### What’s Next
 
-![](../../static/images/hr-tech-stages-adoption.png)
+![](../../static/images/hr-tech-stages-adoption.png "Stage of company by hrtech.community")
 
 I’ll be validating my hypothesis by speaking to companies in the range of 60–150 full-time employees in Asia and US to find out more about how they approach employee assistance and employee benefits.
 
