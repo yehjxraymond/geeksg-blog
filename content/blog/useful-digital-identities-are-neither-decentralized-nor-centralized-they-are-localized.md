@@ -9,7 +9,7 @@ description: Self-Sovereign Identity (SSI) platforms are emerging from the
   charge of controlling the identities, but that will not be the case unless our
   society becomes more egalitarian. Until then, a hybrid of centralized and
   decentralized identity systems that are localized shall prevail.
-featured: false
+featured: true
 img: ../../static/images/city-network.png
 imgAlt: Useful networks are local
 tags:

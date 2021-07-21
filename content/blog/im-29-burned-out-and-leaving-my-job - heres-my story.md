@@ -3,7 +3,7 @@ template: blog-post
 title: I'm 29, burned out, and leaving my job - Here's my story
 publishedDate: 2021-05-21T10:03:39.478Z
 description: '"Hey, I think I might be depressed"'
-featured: true
+featured: false
 img: ../../static/images/bicyclist-mountain-track.png
 imgAlt: Here's to a new journey
 tags:
