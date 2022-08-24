@@ -9,8 +9,6 @@ imgAlt: Here's to a new journey
 tags:
   - mental-health
   - burnout
-  - startup
-  - privacy
 ---
 “Hey, I think I might be depressed”
 
