@@ -10,7 +10,6 @@ img: ../../static/images/selection_308.png
 imgAlt: "Privacy: $30 a piece"
 tags:
   - startup
-  - privacy
   - entrepreneurship
   - mental-health
 ---
