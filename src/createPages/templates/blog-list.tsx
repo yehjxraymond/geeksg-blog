@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { graphql } from "gatsby";
-import { FluidObject } from "gatsby-image";
+import { ImageDataLike } from "gatsby-plugin-image";
 import { Layout } from "../../components/layout";
 import { PostSnippet } from "../../types";
 import { BlogList } from "../../components/blogList";
@@ -15,7 +15,7 @@ interface Post {
       title: string;
       description: string;
       tags: string[];
-      img: { childImageSharp: { fluid: FluidObject } };
+      img: { childImageSharp: ImageDataLike };
       imgAlt: string;
       publishedDate: string;
     };
@@ -54,9 +54,7 @@ export const pageQuery = graphql`
             publishedDate
             img {
               childImageSharp {
-                fluid(maxWidth: 370, maxHeight: 220, quality: 90) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
+                gatsbyImageData(width: 370)
               }
             }
           }
@@ -71,7 +69,7 @@ export const Page: FunctionComponent<QueryData> = ({ data, pageContext }) => {
     title: node.frontmatter.title,
     summary: node.frontmatter.description,
     href: node.fields.slug,
-    img: node.frontmatter.img.childImageSharp.fluid,
+    img: node.frontmatter.img.childImageSharp,
     imgAlt: node.frontmatter.imgAlt,
     tags: node.frontmatter.tags,
     publishedDate: new Date(node.frontmatter.publishedDate),
@@ -80,7 +78,6 @@ export const Page: FunctionComponent<QueryData> = ({ data, pageContext }) => {
     <>
       <SEO
         title={`Page ${pageContext.currentPage}`}
-        image={posts[0].img.src}
         description={`Page ${pageContext.currentPage}`}
       />
       <Layout>

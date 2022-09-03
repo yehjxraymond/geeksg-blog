@@ -1,4 +1,4 @@
-import { FluidObject } from "gatsby-image";
+import { ImageDataLike } from "gatsby-plugin-image";
 
 type TemplateKey = "blog-post";
 
@@ -11,7 +11,7 @@ export interface PostSnippet {
   title: string;
   summary: string;
   href: string;
-  img: FluidObject;
+  img: ImageDataLike;
   imgAlt: string;
   tags: string[];
   publishedDate: Date;

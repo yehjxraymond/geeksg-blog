@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { graphql } from "gatsby";
-import { FluidObject } from "gatsby-image";
+import { IGatsbyImageData } from "gatsby-plugin-image";
 import { Layout } from "../../components/layout";
 import { TagCollection } from "../../components/tagCollection";
 import { PostSnippet } from "../../types";
@@ -15,7 +15,7 @@ interface Post {
       title: string;
       description: string;
       tags: string[];
-      img: { childImageSharp: { fluid: FluidObject } };
+      img: { childImageSharp: { fluid: IGatsbyImageData } };
       imgAlt: string;
       publishedDate: string;
     };
@@ -42,9 +42,7 @@ export const pageQuery = graphql`
             publishedDate
             img {
               childImageSharp {
-                fluid(maxWidth: 370, maxHeight: 220, quality: 90) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
+                gatsbyImageData(width: 370)
               }
             }
           }
@@ -71,7 +69,7 @@ export const Page: FunctionComponent<QueryData> = ({ data, pageContext }) => {
       title: node.frontmatter.title,
       summary: node.frontmatter.description,
       href: node.fields.slug,
-      img: node.frontmatter.img.childImageSharp.fluid,
+      img: node.frontmatter.img.childImageSharp,
       imgAlt: node.frontmatter.imgAlt,
       tags: node.frontmatter.tags,
       publishedDate: new Date(node.frontmatter.publishedDate),
@@ -79,7 +77,7 @@ export const Page: FunctionComponent<QueryData> = ({ data, pageContext }) => {
   );
   return (
     <>
-      <SEO title={pageContext.tag} image={relatedPost[0].img.src} />
+      <SEO title={pageContext.tag} />
       <Layout>
         <TagCollection tag={pageContext.tag} relatedPosts={relatedPost} />
       </Layout>

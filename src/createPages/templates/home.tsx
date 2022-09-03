@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { graphql } from "gatsby";
-import { FluidObject } from "gatsby-image";
+import { ImageDataLike } from "gatsby-plugin-image";
 import { Layout } from "../../components/layout";
 import { PostSnippet } from "../../types";
 import { FeaturePosts } from "../../components/featurePosts";
@@ -30,9 +30,7 @@ export const pageQuery = graphql`
             publishedDate
             img {
               childImageSharp {
-                fluid(maxWidth: 2400, quality: 90) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
+                gatsbyImageData(width: 2400)
               }
             }
           }
@@ -57,9 +55,7 @@ export const pageQuery = graphql`
             publishedDate
             img {
               childImageSharp {
-                fluid(maxWidth: 2400, quality: 90) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
+                gatsbyImageData(width: 2400)
               }
             }
           }
@@ -81,7 +77,7 @@ interface Post {
       imgAlt: string;
       description: string;
       publishedDate: string;
-      img: { childImageSharp: { fluid: FluidObject } };
+      img: { childImageSharp: ImageDataLike };
     };
   };
 }
@@ -104,7 +100,7 @@ const Home: FunctionComponent<Home> = ({ data }) => {
     title: node.frontmatter.title,
     summary: node.frontmatter.description,
     href: node.fields.slug,
-    img: node.frontmatter.img.childImageSharp.fluid,
+    img: node.frontmatter.img.childImageSharp,
     imgAlt: node.frontmatter.imgAlt,
     tags: node.frontmatter.tags,
     publishedDate: new Date(node.frontmatter.publishedDate),
