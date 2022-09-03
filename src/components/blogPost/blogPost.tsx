@@ -45,7 +45,9 @@ export const BlogPost: FunctionComponent<BlogPost> = ({
             </span>
           ))}
         </div>
-        {image && <GatsbyImage image={image} alt={imgAlt || title} className="w-full" />}
+        {image && (
+          <GatsbyImage image={image} alt={imgAlt || title} className="w-full" />
+        )}
         {imgAlt && (
           <div className="text-center my-2 text-gray-500">{imgAlt}</div>
         )}

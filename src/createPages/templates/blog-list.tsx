@@ -35,7 +35,7 @@ interface QueryData {
 }
 
 export const pageQuery = graphql`
-  query($skip: Int!, $limit: Int!) {
+  query ($skip: Int!, $limit: Int!) {
     allMarkdownRemark(
       sort: { fields: [frontmatter___publishedDate], order: DESC }
       limit: $limit

@@ -85,9 +85,7 @@ export const Page: FunctionComponent<Page> = ({ data }) => {
         tags,
         imgAlt,
         description,
-        img: {
-          childImageSharp
-        },
+        img: { childImageSharp },
         publishedDate,
       },
     },
