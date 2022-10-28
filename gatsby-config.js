@@ -72,30 +72,30 @@ module.exports = {
         icon: siteLogoFolder, // This path is relative to the root of the site.
       },
     },
-    {
-      resolve: "gatsby-plugin-seo",
-      options: {
-        siteName,
-        defaultSiteImage: siteLogo,
-        siteUrl,
-        keywords: siteKeyword,
-        globalSchema: `{
-            "@type": "WebSite",
-            "@id": "${siteUrl}",
-            "url": "${siteUrl}",
-            "name": "${siteName}",
-            "publisher": {
-              "@id": "${siteUrl}"
-            },
-            "image": {
-              "@type": "ImageObject",
-              "@id": "${siteUrl}${siteLogo}",
-              "url": "${siteUrl}${siteLogo}",
-              "caption": siteName
-            }
-          }`,
-      },
-    },
+    // {
+    //   resolve: "gatsby-plugin-seo",
+    //   options: {
+    //     siteName,
+    //     defaultSiteImage: siteLogo,
+    //     siteUrl,
+    //     keywords: siteKeyword,
+    //     globalSchema: `{
+    //         "@type": "WebSite",
+    //         "@id": "${siteUrl}",
+    //         "url": "${siteUrl}",
+    //         "name": "${siteName}",
+    //         "publisher": {
+    //           "@id": "${siteUrl}"
+    //         },
+    //         "image": {
+    //           "@type": "ImageObject",
+    //           "@id": "${siteUrl}${siteLogo}",
+    //           "url": "${siteUrl}${siteLogo}",
+    //           "caption": siteName
+    //         }
+    //       }`,
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-react-helmet-canonical-urls`,
       options: {

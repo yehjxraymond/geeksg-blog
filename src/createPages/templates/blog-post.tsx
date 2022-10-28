@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import { graphql } from "gatsby";
-import { FluidObject } from "gatsby-image";
+import { ImageDataLike } from "gatsby-plugin-image";
 import { BlogPost } from "../../components/blogPost";
 import { SEO } from "../../components/seo";
 
@@ -14,7 +14,7 @@ interface QueryData {
       title: string;
       tags: string[];
       img: {
-        childImageSharp: { fluid: FluidObject };
+        childImageSharp: ImageDataLike;
       };
       imgAlt: string;
       publishedDate: string;
@@ -38,9 +38,7 @@ export const pageQuery = graphql`
         tags
         img {
           childImageSharp {
-            fluid(maxWidth: 2400, quality: 90) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
+            gatsbyImageData(width: 2400)
           }
         }
         imgAlt
@@ -63,9 +61,7 @@ export const pageQuery = graphql`
             tags
             img {
               childImageSharp {
-                fluid(maxWidth: 370, maxHeight: 220, quality: 90) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
+                gatsbyImageData(width: 370)
               }
             }
           }
@@ -89,9 +85,7 @@ export const Page: FunctionComponent<Page> = ({ data }) => {
         tags,
         imgAlt,
         description,
-        img: {
-          childImageSharp: { fluid: img },
-        },
+        img: { childImageSharp },
         publishedDate,
       },
     },
@@ -99,12 +93,12 @@ export const Page: FunctionComponent<Page> = ({ data }) => {
 
   return (
     <>
-      <SEO title={title} image={img.src} description={description} />
+      <SEO title={title} description={description} />
       <BlogPost
         title={title}
         tags={tags}
         slug={slug}
-        img={img}
+        img={childImageSharp}
         imgAlt={imgAlt}
         publishedDate={new Date(publishedDate)}
       >

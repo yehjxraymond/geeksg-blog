@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react";
 import { format } from "date-fns";
 import { Disqus } from "gatsby-plugin-disqus";
-import Image, { FluidObject } from "gatsby-image";
+import { GatsbyImage, ImageDataLike, getImage } from "gatsby-plugin-image";
 import { Layout } from "../layout";
 import { Newsletter } from "../newsletter";
 import { useSiteMetadata } from "../hooks/useSiteMetadata";
@@ -10,7 +10,7 @@ interface BlogPost {
   title: string;
   slug: string;
   tags: string[];
-  img: FluidObject;
+  img: ImageDataLike;
   imgAlt?: string;
   publishedDate: Date;
 }
@@ -25,6 +25,7 @@ export const BlogPost: FunctionComponent<BlogPost> = ({
   children,
 }) => {
   const { siteUrl } = useSiteMetadata();
+  const image = getImage(img);
   return (
     <Layout>
       <div className="">
@@ -44,7 +45,9 @@ export const BlogPost: FunctionComponent<BlogPost> = ({
             </span>
           ))}
         </div>
-        <Image fluid={img} alt={imgAlt || title} className="w-full" />
+        {image && (
+          <GatsbyImage image={image} alt={imgAlt || title} className="w-full" />
+        )}
         {imgAlt && (
           <div className="text-center my-2 text-gray-500">{imgAlt}</div>
         )}

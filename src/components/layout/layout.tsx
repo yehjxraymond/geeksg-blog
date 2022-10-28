@@ -5,6 +5,7 @@ import { useSiteMetadata } from "../hooks/useSiteMetadata";
 import { Header, MenuItem } from "./header";
 import { Footer } from "./footer";
 import icon from "../../../static/logo.png";
+import { Apartment } from "@styled-icons/material/Apartment";
 
 const logo = <img className="w-auto h-15" src={icon} alt="Workflow" />;
 const menuItems: MenuItem[] = [
@@ -22,11 +23,19 @@ const menuItems: MenuItem[] = [
   },
   {
     label: "Buy Cryptocurrency",
-    href: "/blog/complete-guide-to-buying-bitcoin-ethereum-or-other-cryptocurrencies-in-singapore",
+    href:
+      "/blog/complete-guide-to-buying-bitcoin-ethereum-or-other-cryptocurrencies-in-singapore",
   },
   {
     label: "Tools",
     dropdownItems: [
+      {
+        label: "HDB Valuation",
+        href: "/tools/hdb-resale",
+        description:
+          "Get an estimate of HDB resale value based on recent transactions",
+        icon: <Apartment className="w-8" />,
+      },
       {
         label: "CPF Forecast Calculator",
         href: "/tools/cpf-forecast",

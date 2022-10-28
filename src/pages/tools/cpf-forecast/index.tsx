@@ -3,7 +3,7 @@ import { CpfCalculator } from "../../../components/interactive/cpf";
 import { Layout } from "../../../components/layout";
 import { SEO } from "../../../components/seo";
 
-export const NotFound: FunctionComponent = () => {
+export const CpfForecast: FunctionComponent = () => {
   return (
     <>
       <SEO
@@ -38,4 +38,4 @@ export const NotFound: FunctionComponent = () => {
   );
 };
 
-export default NotFound;
+export default CpfForecast;

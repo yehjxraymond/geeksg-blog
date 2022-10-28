@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import Image from "gatsby-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { PostSnippet } from "../../types";
 
 export interface FeaturePosts {
@@ -14,15 +14,18 @@ export const FeaturePost: FunctionComponent<PostSnippet> = ({
   imgAlt,
   tags,
 }) => {
+  const image = getImage(img);
   return (
     <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
       <div className="flex-shrink-0">
         <a href={href}>
-          <Image
-            fluid={img}
-            alt={imgAlt || title}
-            className="h-48 w-full object-cover"
-          />
+          {image && (
+            <GatsbyImage
+              image={image}
+              alt={imgAlt || title}
+              className="h-48 w-full object-cover"
+            />
+          )}
         </a>
       </div>
       <div className="flex-1 bg-white p-6 flex flex-col justify-between">
@@ -55,14 +58,17 @@ export const TopFeaturePost: FunctionComponent<PostSnippet> = ({
   img,
   imgAlt,
 }) => {
+  const image = getImage(img);
   return (
     <div>
       <a href={href}>
-        <Image
-          fluid={img}
-          alt={imgAlt || title}
-          className="h-144 w-full object-cover rounded"
-        />
+        {image && (
+          <GatsbyImage
+            image={image}
+            alt={imgAlt || title}
+            className="h-144 w-full object-cover rounded"
+          />
+        )}
         <h1 className="text-4xl text-center my-3">{title}</h1>
         <div className="mb-16 max-w-prose mx-auto text-center text-lg text-gray-600">
           {summary}
