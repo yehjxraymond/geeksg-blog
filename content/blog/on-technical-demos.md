@@ -59,9 +59,11 @@ But… it's not a working product that inspires and excite people does it?
 
 ---
 
-T﻿he purpose of a product launch or introduction is to inspire and excites. It should cater to the inner most desires or core motivations of the audience. As the presenter, you are seeking an emotional response to your product, not a logical one.
+T﻿he purpose of a product launch or introduction is to inspire and excites. It should cater to the inner most desires or core motivations of the audience. 
 
-A﻿ technical demo does exactly the opposite, and should be avoided at all cost in the initial engagement.
+T﻿hink of yourself as a magician. You want to elicit awe and astonishment from your audience. If your audience is left wondering how your magic trick works, the magic is lost. 
+
+As the presenter, you are seeking an emotional response to your product, not a logical one. A﻿ technical demo does exactly the opposite, and should be avoided at all cost in the initial engagement.
 
 There are only three scenarios which a technical product demo is appropriate:
 
