@@ -1,10 +1,8 @@
 ---
 template: blog-post
-title: On Defining the Product
+title: On Selling the Product
 publishedDate: 2023-02-20T06:50:09.145Z
-description: "A business cannot define the product without first understanding
-  and describing the customer. To do so is to have complete disrespect to the
-  very person you are selling to. "
+description: "A business cannot sell the product without first understanding the customer. "
 featured: false
 img: ../../static/images/edisons-electric-pen.jpeg
 imgAlt: What is the product?
@@ -82,7 +80,7 @@ Once we've a better understanding of the different segments of customer that fit
 * A safe fixed deposit program, but on steroids.
 * A way to make someone's dream come true while keeping your capital and earning interest. It's a loan, not a donation!
 
-S﻿o, there you have it, Bluejay is offering <insert how-we tell-people-what's-in-the-box answer> to you as a <insert corresponding customer-segment answer>.
+S﻿o, there you have it, Bluejay is offering `<insert how-we tell-people-what's-in-the-box answer>` to you as a `<insert corresponding customer-segment answer>`.
 
 Y﻿es, it will be a different statement for different people. 
 
