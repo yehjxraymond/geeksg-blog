@@ -1,10 +1,8 @@
 ---
 template: blog-post
-title: On Defining the Product
+title: On Selling the Product
 publishedDate: 2023-02-20T06:50:09.145Z
-description: "A business cannot define the product without first understanding
-  and describing the customer. To do so is to have complete disrespect to the
-  very person you are selling to. "
+description: "A business cannot sell the product without first understanding the customer. "
 featured: false
 img: ../../static/images/edisons-electric-pen.jpeg
 imgAlt: What is the product?
