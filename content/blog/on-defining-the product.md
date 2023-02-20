@@ -82,7 +82,7 @@ Once we've a better understanding of the different segments of customer that fit
 * A safe fixed deposit program, but on steroids.
 * A way to make someone's dream come true while keeping your capital and earning interest. It's a loan, not a donation!
 
-S﻿o, there you have it, Bluejay is offering <insert how-we tell-people-what's-in-the-box answer> to you as a <insert corresponding customer-segment answer>.
+S﻿o, there you have it, Bluejay is offering `<insert how-we tell-people-what's-in-the-box answer>` to you as a `<insert corresponding customer-segment answer>`.
 
 Y﻿es, it will be a different statement for different people. 
 
