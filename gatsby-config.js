@@ -108,12 +108,6 @@ module.exports = {
     },
     {
       resolve: `gatsby-plugin-slug`,
-    },
-    {
-      resolve: `gatsby-plugin-disqus`,
-      options: {
-        shortname: `geeksg`,
-      },
-    },
+    }
   ],
 };
