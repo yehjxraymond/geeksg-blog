@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from "react";
 import { format } from "date-fns";
-import { Disqus } from "gatsby-plugin-disqus";
 import Image, { FluidObject } from "gatsby-image";
 import { Layout } from "../layout";
 import { Newsletter } from "../newsletter";
@@ -57,18 +56,6 @@ export const BlogPost: FunctionComponent<BlogPost> = ({
         </div>
       </div>
       <Newsletter />
-      <div className="max-w-screen-xl mx-auto px-4 py-8 sm:px-6 lg:py-12 lg:px-8">
-        <h2 className="text-xl sm:text-3xl font-semibold mt-2 mb-2">
-          Discussions
-        </h2>
-        <Disqus
-          config={{
-            url: `${siteUrl}/blog/${slug}`,
-            identifier: slug,
-            title,
-          }}
-        />
-      </div>
     </Layout>
   );
 };
