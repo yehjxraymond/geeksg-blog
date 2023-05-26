@@ -5,7 +5,7 @@ publishedDate: 2023-01-25T07:38:07.326Z
 description: Working with incredibly talented people is a blessing because
   you're constantly surrounded by new and exciting ideas. However, the downside
   is that these ideas can sometimes pull you in different directions.
-featured: true
+featured: false
 img: ../../static/images/a_person_standing_on_a_mountaintop_looking_out.png
 imgAlt: Why is it worth the journey?
 tags:

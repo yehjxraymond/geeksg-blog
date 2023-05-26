@@ -6,7 +6,7 @@ description: There are only three scenarios which a technical product demo is
   appropriate for introducing your product. One, you are a student turning it in
   to the professor for grading. Two, you are at a hackathon. Three, you are at
   the final stage of the sales cycle, where the big guy has already said "yes".
-featured: true
+featured: false
 img: ../../static/images/magic.jpeg
 imgAlt: The magic is lost when you look behind the shoulders of the magician
 tags:

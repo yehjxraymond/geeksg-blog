@@ -3,7 +3,7 @@ template: blog-post
 title: 3 Contrarian views of the future of DeFi
 publishedDate: 2022-07-18T10:05:22.798Z
 description: DeFi is not going to overthrow CeFi
-featured: true
+featured: false
 img: ../../static/images/contrarian-view-defi.png
 imgAlt: A whole new world behind the web2/web3 divide
 tags:

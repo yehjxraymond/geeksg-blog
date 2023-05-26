@@ -3,7 +3,7 @@ template: blog-post
 title: Ponzinomics Simplified (Part 1)
 publishedDate: 2022-01-29T07:31:23.800Z
 description: A short story on how everyone can get rich in DeFi
-featured: true
+featured: false
 img: ../../static/images/ponzi-developer.png
 imgAlt: Launching soon. Whitelist Available.
 tags:

@@ -6,7 +6,7 @@ description: If everyone is making money in the ecosystem, then who is losing
   money? In fact, most projects out there are simply the game of the greater
   fool - it's alright to be a fool, you just need to bring along a greater fool
   to recoup your losses.
-featured: true
+featured: false
 img: ../../static/images/bullshit.png
 imgAlt: '"This is bullshit"'
 tags:
