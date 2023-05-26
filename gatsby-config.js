@@ -110,13 +110,6 @@ module.exports = {
       resolve: `gatsby-plugin-slug`,
     },
     {
-      resolve: "gatsby-plugin-google-tagmanager",
-      options: {
-        id: "GTM-5SL6XFQ",
-        includeInDevelopment: false,
-      },
-    },
-    {
       resolve: `gatsby-plugin-disqus`,
       options: {
         shortname: `geeksg`,
