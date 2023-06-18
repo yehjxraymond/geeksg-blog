@@ -15,21 +15,6 @@
 // - 3rd: Special Account (SA)
 // - 4th: MediSave Account (MA)
 
-// CPF Contribution Rate
-// https://www.cpf.gov.sg/content/dam/web/employer/employer-obligations/documents/CPF%20allocation%20rates%20from%201%20January%202023.pdf
-
-// CPF Annual Ceiling
-// https://www.cpf.gov.sg/employer/faq/employer-obligations/what-payments-attract-cpf-contributions/what-are-the-changes-to-the-cpf-salary-ceilings-from-1-sep-2023
-// The CPF Annual limit will also remain at $37,740.
-
-// CPF Monthly salary ceiling
-// https://www.cpf.gov.sg/member/infohub/news/media-news/budget-2023-cpf-monthly-salary-ceiling-to-be-raised-to-8000-by-2026
-// Current - 6k
-// Sep 2023 - 6.3k
-// Jan 2024 - 6.8k
-// Jan 2025 - 7.4k
-// Jan 2026 - 8k
-
 // Basic Health Sum (BHS) ie Max limit on MA
 // https://www.cpf.gov.sg/member/faq/healthcare-financing/basic-healthcare-sum/what-is-the-basic-healthcare-sum-when-i-turn-65-years-old
 // Any contributions beyond the BHS will be transferred to SA/RA
@@ -160,6 +145,114 @@ const generateInitialStatement = ({
   };
 };
 
+// CPF Allocation Rate
+// https://www.cpf.gov.sg/content/dam/web/employer/employer-obligations/documents/CPF%20allocation%20rates%20from%201%20January%202023.pdf
+const getAllocationRate = (age: Age): Account => {
+  switch (true) {
+    case age.year <= 35:
+      return { oa: 0.6217, sa: 0.1621, ma: 0.2162 };
+    case age.year <= 45:
+      return { oa: 0.5677, sa: 0.1891, ma: 0.2432 };
+    case age.year <= 50:
+      return { oa: 0.5136, sa: 0.2162, ma: 0.2702 };
+    default:
+      // age.year <= 55
+      return { oa: 0.4055, sa: 0.3108, ma: 0.2837 };
+  }
+};
+
+// CPF Monthly salary ceiling
+// https://www.cpf.gov.sg/member/infohub/news/media-news/budget-2023-cpf-monthly-salary-ceiling-to-be-raised-to-8000-by-2026
+// Current - 6k
+// Sep 2023 - 6.3k
+// Jan 2024 - 6.8k
+// Jan 2025 - 7.4k
+// Jan 2026 - 8k
+const getSalaryCeiling = (time: Timestamp) => {
+  switch (true) {
+    case time.year <= 2023 && time.month <= 8:
+      return 6000;
+    case time.year < 2024:
+      return 6300;
+    case time.year < 2025:
+      return 6800;
+    case time.year < 2026:
+      return 7400;
+    default:
+      return 8000;
+  }
+};
+
+// CPF Contribution Rate
+// https://www.cpf.gov.sg/employer/employer-obligations/how-much-cpf-contributions-to-pay
+const getSalaryContributionRate = () => 0.37; // 17% by self, 20% by employer
+
+const accountAdd = (a: Account, b: Account): Account => ({
+  oa: a.oa + b.oa,
+  sa: a.sa + b.sa,
+  ma: a.ma + b.ma,
+});
+
+const accountBalanceSum = (a: Account): number => a.oa + a.sa + a.ma;
+
+// CPF Annual Ceiling
+// https://www.cpf.gov.sg/employer/faq/employer-obligations/what-payments-attract-cpf-contributions/what-are-the-changes-to-the-cpf-salary-ceilings-from-1-sep-2023
+// The CPF Annual limit will also remain at $37,740.
+const annualContributionLimit = () => 37740;
+
+const contributionsFromSalaryOrBonus = (
+  {
+    salary,
+    date,
+    age,
+    ytdContributions,
+  }: {
+    salary: number;
+    age: Age;
+    date: Timestamp;
+    ytdContributions: Account;
+  },
+  isBonus = false
+): Account => {
+  const allocationRate = getAllocationRate(age);
+  const salaryContributed =
+    (isBonus ? salary : Math.min(salary, getSalaryCeiling(date))) *
+    getSalaryContributionRate();
+  const oa = salaryContributed * allocationRate.oa;
+  const sa = salaryContributed * allocationRate.sa;
+  const ma = salaryContributed * allocationRate.ma;
+  const contribution = { oa, sa, ma };
+
+  // Checks if contribution would exceed annual limit
+  const totalYtdContributions = accountBalanceSum(ytdContributions);
+  const allowanceForContribution = Math.max(
+    annualContributionLimit() - totalYtdContributions,
+    0
+  );
+
+  // Return contribution if it does not exceed annual limit
+  if (accountBalanceSum(contribution) <= allowanceForContribution)
+    return contribution;
+
+  // Otherwise, return contribution that does not exceed annual limit
+  return {
+    oa: allocationRate.oa * allowanceForContribution,
+    sa: allocationRate.sa * allowanceForContribution,
+    ma: allocationRate.ma * allowanceForContribution,
+  };
+};
+
+const generateNextStatement = (
+  previousStatement: Statement,
+  settings: UserInputs
+): Statement => {
+  // Accrue interest on previous balances
+  // Credit accrued interest if in December
+  // Add salary contributions (if still working)
+  // Add bonus contributions (if still working)
+  // Overflow MA in excess of BHS to SA
+};
+
 describe("generateInitialStatement", () => {
   it("should generate the initial state correctly for months greater than current month", () => {
     const input = {
@@ -262,6 +355,139 @@ describe("generateInitialStatement", () => {
           "oa": 0,
           "sa": 0,
         },
+      }
+    `);
+  });
+});
+describe("getSalaryCeiling", () => {
+  it("should be correct for legacy rates", () => {
+    expect(getSalaryCeiling({ year: 2021, month: 1 })).toEqual(6000);
+    expect(getSalaryCeiling({ year: 2023, month: 8 })).toEqual(6000);
+  });
+  it("should be correct from Sep 2023 to Jan 2024", () => {
+    expect(getSalaryCeiling({ year: 2023, month: 9 })).toEqual(6300);
+    expect(getSalaryCeiling({ year: 2023, month: 12 })).toEqual(6300);
+  });
+  it("should be correct from Jan 2024 to Dec 2024", () => {
+    expect(getSalaryCeiling({ year: 2024, month: 1 })).toEqual(6800);
+    expect(getSalaryCeiling({ year: 2024, month: 12 })).toEqual(6800);
+  });
+  it("should be correct from Jan 2025 to Dec 2025", () => {
+    expect(getSalaryCeiling({ year: 2025, month: 1 })).toEqual(7400);
+    expect(getSalaryCeiling({ year: 2025, month: 12 })).toEqual(7400);
+  });
+  it("should be correct from Jan 2026 and beyond", () => {
+    expect(getSalaryCeiling({ year: 2026, month: 1 })).toEqual(8000);
+    expect(getSalaryCeiling({ year: 2200, month: 12 })).toEqual(8000);
+  });
+});
+describe("contributionsFromSalaryOrBonus", () => {
+  it("should be correct for salaries below the salary ceiling", () => {
+    const contribution = contributionsFromSalaryOrBonus({
+      salary: 2000,
+      age: { year: 30, month: 0 },
+      date: { year: 2023, month: 6 },
+      ytdContributions: { ma: 0, oa: 0, sa: 0 },
+    });
+    expect(contribution).toMatchInlineSnapshot(`
+      Object {
+        "ma": 159.988,
+        "oa": 460.05800000000005,
+        "sa": 119.954,
+      }
+    `);
+    expect(contribution.ma + contribution.oa + contribution.sa).toEqual(
+      0.37 * 2000
+    );
+  });
+  it("should be correct for salaries above the salary ceiling", () => {
+    const contribution = contributionsFromSalaryOrBonus({
+      salary: 8000,
+      age: { year: 30, month: 0 },
+      date: { year: 2023, month: 6 },
+      ytdContributions: { ma: 0, oa: 0, sa: 0 },
+    });
+    expect(contribution).toMatchInlineSnapshot(`
+      Object {
+        "ma": 479.964,
+        "oa": 1380.174,
+        "sa": 359.86199999999997,
+      }
+    `);
+    expect(contribution.ma + contribution.oa + contribution.sa).toEqual(
+      0.37 * 6000
+    );
+  });
+  it("should be correct for salaries above the salary ceiling, even after adjustments", () => {
+    const contribution = contributionsFromSalaryOrBonus({
+      salary: 20000,
+      age: { year: 30, month: 0 },
+      date: { year: 2025, month: 6 },
+      ytdContributions: { ma: 0, oa: 0, sa: 0 },
+    });
+    expect(contribution).toMatchInlineSnapshot(`
+      Object {
+        "ma": 591.9556,
+        "oa": 1702.2146,
+        "sa": 443.8298,
+      }
+    `);
+    expect(contribution.ma + contribution.oa + contribution.sa).toEqual(
+      0.37 * 7400
+    );
+  });
+  it("should be correct for amounts exceeding annual contributions", () => {
+    const contribution = contributionsFromSalaryOrBonus(
+      {
+        salary: 20000,
+        age: { year: 30, month: 0 },
+        date: { year: 2025, month: 6 },
+        ytdContributions: { ma: 12000, oa: 12000, sa: 10000 },
+      },
+      true
+    );
+    expect(contribution).toMatchInlineSnapshot(`
+      Object {
+        "ma": 808.588,
+        "oa": 2325.158,
+        "sa": 606.254,
+      }
+    `);
+    expect(contribution.ma + contribution.oa + contribution.sa).toEqual(3740);
+  });
+  it("should no longer contribute if annual limits are met", () => {
+    const contribution = contributionsFromSalaryOrBonus(
+      {
+        salary: 20000,
+        age: { year: 30, month: 0 },
+        date: { year: 2025, month: 6 },
+        ytdContributions: { ma: 0, oa: 37740, sa: 0 },
+      },
+      true
+    );
+    expect(contribution).toMatchInlineSnapshot(`
+      Object {
+        "ma": 0,
+        "oa": 0,
+        "sa": 0,
+      }
+    `);
+  });
+  it("should not have negative values", () => {
+    const contribution = contributionsFromSalaryOrBonus(
+      {
+        salary: 20000,
+        age: { year: 30, month: 0 },
+        date: { year: 2025, month: 6 },
+        ytdContributions: { ma: 0, oa: 100000, sa: 0 },
+      },
+      true
+    );
+    expect(contribution).toMatchInlineSnapshot(`
+      Object {
+        "ma": 0,
+        "oa": 0,
+        "sa": 0,
       }
     `);
   });
