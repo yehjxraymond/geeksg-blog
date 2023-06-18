@@ -100,6 +100,54 @@ const CpfForecastChart = ({ computedResult }: ComputedResults) => {
               strokeOpacity={0}
               fillOpacity={0}
             />
+            <Area
+              name="FRS (estimate)"
+              type="monotone"
+              dataKey="frs"
+              stackId="3"
+              strokeOpacity={0}
+              fillOpacity={0}
+              stroke="#000000"
+            />
+          </AreaChart>
+        </ResponsiveContainer>
+      </div>
+    </>
+  );
+};
+
+const HousingChart = ({ computedResult }: ComputedResults) => {
+  if (!computedResult) return null;
+  return (
+    <>
+      <div className="row my-4">
+        <div className="col text-center">
+          <h3>CPF OA Used For Housing:</h3>
+        </div>
+      </div>
+      <div style={{ width: "100%", height: 350 }}>
+        <ResponsiveContainer>
+          <AreaChart
+            data={computedResult}
+            margin={{
+              top: 20,
+              right: 20,
+              left: 20,
+              bottom: 40,
+            }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="age.year" />
+            <YAxis />
+            <Tooltip formatter={formatNumber} />
+            <Area
+              name="OA Balance Used For Housing"
+              type="monotone"
+              dataKey="housingOaBalance"
+              stackId="1"
+              stroke="#8884d8"
+              fill="#8884d8"
+            />
           </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -292,12 +340,14 @@ export const CpfTable: FunctionComponent<ComputedResults> = ({
         <table className="hidden md:table text-center w-full">
           <thead>
             <tr className="bg-gray-800 text-white">
-              <th className="p-2">Age</th>
+              <th className="p-2">Year/Age</th>
               <th className="p-2">Salary</th>
-              <th className="p-2">OA</th>
-              <th className="p-2">SA</th>
-              <th className="p-2">MA</th>
-              <th className="p-2">Total</th>
+              <th className="p-2">
+                Contributions{" "}
+                <InfoTooltip>
+                  Total CPF contribution from salary for this entire year
+                </InfoTooltip>
+              </th>
               <th className="p-2">
                 Interest{" "}
                 <InfoTooltip>
@@ -306,16 +356,14 @@ export const CpfTable: FunctionComponent<ComputedResults> = ({
                   interest rates on the balances.
                 </InfoTooltip>
               </th>
+              <th className="p-2">OA</th>
+              <th className="p-2">SA</th>
+              <th className="p-2">MA</th>
+              <th className="p-2">Total</th>
               <th className="p-2">
                 FRS{" "}
                 <InfoTooltip>
                   Estimated based on 3% increment per year
-                </InfoTooltip>
-              </th>
-              <th className="p-2">
-                BHS{" "}
-                <InfoTooltip>
-                  Estimated based on 4.95% increment per year
                 </InfoTooltip>
               </th>
             </tr>
@@ -332,21 +380,30 @@ export const CpfTable: FunctionComponent<ComputedResults> = ({
                   ),
                 }}
               >
-                <td>{cpf.age.year}</td>
+                <td>
+                  {cpf.date.year}/{cpf.age.year}
+                  {cpf.age.year === 55 ? "**" : ""}
+                </td>
                 <td>{formatNumber(cpf.salary)}</td>
+                <td>
+                  {formatNumber(
+                    cpf.ytdContributions.oa +
+                      cpf.ytdContributions.sa +
+                      cpf.ytdContributions.ma
+                  )}
+                </td>
+                <td>
+                  {formatNumber(
+                    cpf.ytdAccruedInterest.oa +
+                      cpf.ytdAccruedInterest.sa +
+                      cpf.ytdAccruedInterest.ma
+                  )}
+                </td>
                 <td>{formatNumber(cpf.currentBalances.oa)}</td>
                 <td>{formatNumber(cpf.currentBalances.sa)}</td>
                 <td>{formatNumber(cpf.currentBalances.ma)}</td>
                 <td>{formatNumber(cpf.total)}</td>
-                <td>
-                  {formatNumber(
-                    cpf.accruedInterest.oa +
-                      cpf.accruedInterest.sa +
-                      cpf.accruedInterest.ma
-                  )}
-                </td>
                 <td>{formatNumber(cpf.frs)}</td>
-                <td>{formatNumber(cpf.bhsLimit)}</td>
               </tr>
             ))}
           </tbody>
@@ -354,6 +411,10 @@ export const CpfTable: FunctionComponent<ComputedResults> = ({
         <div className="hidden md:block text-sm mt-2">
           * The BRS/FRS/ERS is considered to be achieved when the monies in OA +
           SA exceeds the target value.
+        </div>
+        <div className="hidden md:block text-sm mt-2">
+          ** Value shown is up to the month you turn age 55 instead of the year
+          end.
         </div>
       </div>
     </>
@@ -479,13 +540,25 @@ export const CpfCalculator: FunctionComponent = () => {
   const [topUp, setTopUp] = useState("0");
   const [transfer, setTransfer] = useState("0");
 
-  const [computedResult, setComputedResult] = useState<ReprocessedLineItem[]>();
+  const [rawResults, setRawResults] = useState<Statement[]>();
 
   const toggleAdvancesSettings = () =>
     setShowAdvanceSettings(!showAdvanceSettings);
   const toggleShowDisclaimer = () => {
     setShowDisclaimer(!showDisclaimer);
   };
+
+  const computedResult = rawResults
+    ? rawResults
+        .filter((item) => item.date.month === 12 || item.age.year === 55)
+        .map((line) => ({
+          ...line,
+          total:
+            line.currentBalances.oa +
+            line.currentBalances.ma +
+            line.currentBalances.sa,
+        }))
+    : undefined;
 
   const calculate = () => {
     const results = generateForecast({
@@ -512,16 +585,8 @@ export const CpfCalculator: FunctionComponent = () => {
         year: Number(mortgageEndYear),
         month: Number(mortgageEndMonth),
       },
-    })
-      .filter((item) => item.age.month === 0)
-      .map((line) => ({
-        ...line,
-        total:
-          line.currentBalances.oa +
-          line.currentBalances.ma +
-          line.currentBalances.sa,
-      }));
-    setComputedResult(results);
+    });
+    setRawResults(results);
   };
 
   return (
@@ -663,6 +728,8 @@ export const CpfCalculator: FunctionComponent = () => {
       <CpfSummary computedResult={computedResult} />
       <CpfForecastChart computedResult={computedResult} />
       <CpfTable computedResult={computedResult} />
+
+      <HousingChart computedResult={computedResult} />
 
       {computedResult && (
         <Disclaimer show={showDisclaimer} toggle={toggleShowDisclaimer} />
