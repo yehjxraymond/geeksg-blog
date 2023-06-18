@@ -1,23 +1,5 @@
-// Interest rate calculation
-// https://www.cpf.gov.sg/member/growing-your-savings/earning-higher-returns/earning-attractive-interest
-// OA - 2.5% (using floor)
-// SA & MA - 4% (using floor)
-// RA - 4%
-
 // Interest calculated monthly, compounded annually
 // https://www.cpf.gov.sg/member/faq/growing-your-savings/cpf-interest-rates/how-is-my-cpf-interest-computed-and-credited-into-my-accounts
-
-// Extra interest on first $60k
-// https://www.cpf.gov.sg/member/faq/growing-your-savings/cpf-interest-rates/how-much-extra-interest-can-i-earn-on-my-cpf-savings
-// Your accounts are used to compute your combined CPF balances in the following order:
-// - 1st: Retirement Account (RA), including any CPF LIFE premium balance
-// - 2nd: OA, with a cap of $20,000*
-// - 3rd: Special Account (SA)
-// - 4th: MediSave Account (MA)
-
-// Basic Health Sum (BHS) ie Max limit on MA
-// https://www.cpf.gov.sg/member/faq/healthcare-financing/basic-healthcare-sum/what-is-the-basic-healthcare-sum-when-i-turn-65-years-old
-// Any contributions beyond the BHS will be transferred to SA/RA
 
 // Retirement sums
 // https://www.cpf.gov.sg/member/faq/retirement-income/general-information-on-retirement/what-are-the-retirement-sums-applicable-to-me-
@@ -43,10 +25,6 @@
 // 1. Retirement
 // 2. Housing
 
-it("works", () => {
-  console.log("hi");
-});
-
 // Table
 // Current year | Current month | Age (year & month) | Current Salary | Bonus | YTD Contributions | Current OA | MA | SA | Accrued Interest OA | MA | SA | OA Used for Housing | OA Accrued interest (pending) | OA Accrued interest
 
@@ -71,11 +49,14 @@ interface Statement {
   saCashTopUp: number;
   oaToSaTransfer: number;
   currentBalances: Account;
+  accruedInterest: Account;
   ytdContributions: Account;
+  salaryContributions: Account;
   ytdAccruedInterest: Account;
   housingOaBalance: number;
   housingDeductions: number;
   housingYtdOaAccruedInterest: number;
+  bhsLimit: number;
 }
 
 interface UserInputs {
@@ -89,6 +70,8 @@ interface UserInputs {
   currentBalances: Account;
   housingOaBalance: number;
   housingDeductions: number;
+  ageToStopWorking: Age;
+  timeForLastMortgagePayment: Timestamp;
 }
 
 const mod = (a: number, b: number) => ((a % b) + b) % b;
@@ -113,10 +96,6 @@ const generateInitialStatement = ({
         : date.year - birthYear - 1,
     month: mod(date.month - birthMonth, 12),
   };
-  const salary = currentSalary;
-
-  // Assumes bonus is credited in December only
-  const bonus = date.month === 12 ? annualBonusInMonths * salary : 0;
 
   // Assumes cash top up and OA to SA transfer is done in January only
   const saCashTopUp = date.month === 1 ? annualCashTopUp : 0;
@@ -125,6 +104,18 @@ const generateInitialStatement = ({
   // TODO - calculate accrued interest assuming equal monthly contributions
   const ytdContributions = { oa: 0, sa: 0, ma: 0 };
   const ytdAccruedInterest = { oa: 0, sa: 0, ma: 0 };
+  const accruedInterest = { oa: 0, sa: 0, ma: 0 };
+
+  const salary = currentSalary;
+  const salaryContributions = contributionsFromSalaryOrBonus({
+    salary,
+    date,
+    age,
+    ytdContributions,
+  });
+
+  // Assumes bonus is credited in December only
+  const bonus = date.month === 12 ? annualBonusInMonths * salary : 0;
 
   // TODO - calculate accrued interest for housing OA
   const housingYtdOaAccruedInterest = 0;
@@ -139,10 +130,23 @@ const generateInitialStatement = ({
     currentBalances,
     ytdContributions,
     ytdAccruedInterest,
+    accruedInterest,
+    salaryContributions,
     housingOaBalance,
     housingDeductions,
     housingYtdOaAccruedInterest,
+    bhsLimit: getBhs(date.year),
   };
+};
+
+// Basic Health Sum (BHS) ie Max limit on MA
+// https://www.cpf.gov.sg/member/faq/healthcare-financing/basic-healthcare-sum/what-is-the-basic-healthcare-sum-when-i-turn-65-years-old
+// https://blog.seedly.sg/basic-healthcare-sum-bhs-cpf-singapore/
+// Any contributions beyond the BHS will be transferred to SA/RA
+export const getBhs = (currentYear: number): number => {
+  const lastPublishedYear = 2023;
+  const lastCohortBhs = 68500;
+  return 1.047 ** (currentYear - lastPublishedYear) * lastCohortBhs;
 };
 
 // CPF Allocation Rate
@@ -242,20 +246,218 @@ const contributionsFromSalaryOrBonus = (
   };
 };
 
+// Interest rate calculation
+// https://www.cpf.gov.sg/member/growing-your-savings/earning-higher-returns/earning-attractive-interest
+// OA - 2.5% (using floor)
+// SA & MA - 4% (using floor)
+// RA - 4%
+const monthlyBaseInterest = (currentBalances: Account): Account => {
+  const oa = (currentBalances.oa * 0.025) / 12;
+  const sa = (currentBalances.sa * 0.04) / 12;
+  const ma = (currentBalances.ma * 0.04) / 12;
+  return { oa, sa, ma };
+};
+
+// Extra interest on first $60k
+// https://www.cpf.gov.sg/member/faq/growing-your-savings/cpf-interest-rates/how-much-extra-interest-can-i-earn-on-my-cpf-savings
+// Your accounts are used to compute your combined CPF balances in the following order:
+// - 1st: Retirement Account (RA), including any CPF LIFE premium balance
+// - 2nd: OA, with a cap of $20,000*
+// - 3rd: Special Account (SA)
+// - 4th: MediSave Account (MA)
+const monthlyExtraInterest = (currentBalances: Account): Account => {
+  let considerationsBudget = 60000;
+
+  // Apply to OA
+  const oaConsiderations = Math.min(
+    currentBalances.oa,
+    considerationsBudget,
+    20000
+  );
+  considerationsBudget -= oaConsiderations;
+  const oa = (oaConsiderations * 0.01) / 12;
+
+  // Apply to SA
+  const saConsiderations = Math.min(currentBalances.sa, considerationsBudget);
+  considerationsBudget -= saConsiderations;
+  const sa = (saConsiderations * 0.01) / 12;
+
+  // Apply to MA
+  const maConsiderations = Math.min(currentBalances.ma, considerationsBudget);
+  considerationsBudget -= maConsiderations;
+  const ma = (maConsiderations * 0.01) / 12;
+
+  return { oa, sa, ma };
+};
+
+const zeroAccount = (): Account => ({ oa: 0, sa: 0, ma: 0 });
+
+const isTimeBefore = (a: Timestamp, b: Timestamp): boolean => {
+  return a.year < b.year || (a.year === b.year && a.month < b.month);
+};
+
 const generateNextStatement = (
   previousStatement: Statement,
   settings: UserInputs
 ): Statement => {
+  const currentDate = {
+    year:
+      previousStatement.date.month === 12
+        ? previousStatement.date.year + 1
+        : previousStatement.date.year,
+    month:
+      previousStatement.date.month === 12
+        ? 1
+        : previousStatement.date.month + 1,
+  };
+  const currentAge = {
+    year:
+      previousStatement.age.month === 11
+        ? previousStatement.age.year + 1
+        : previousStatement.age.year,
+    month: (previousStatement.age.month + 1) % 12,
+  };
+  const nextBalance = {
+    oa: previousStatement.currentBalances.oa,
+    sa: previousStatement.currentBalances.sa,
+    ma: previousStatement.currentBalances.ma,
+  };
+  const nextYtdContributions =
+    currentDate.month === 1
+      ? zeroAccount()
+      : {
+          oa: previousStatement.ytdContributions.oa,
+          sa: previousStatement.ytdContributions.sa,
+          ma: previousStatement.ytdContributions.ma,
+        };
+  let nextHousingOaBalance = previousStatement.housingOaBalance;
+  let nextHousingYtdOaAccruedInterest =
+    currentDate.month === 1 ? 0 : previousStatement.housingYtdOaAccruedInterest;
+  const isCurrentlyWorking = isTimeBefore(
+    currentAge,
+    settings.ageToStopWorking
+  );
+  const isCurrentlyPayingHousing = isTimeBefore(
+    currentDate,
+    settings.timeForLastMortgagePayment
+  );
+  const salaryContributions = zeroAccount();
+
   // Accrue interest on previous balances
+  const baseInterest = monthlyBaseInterest(previousStatement.currentBalances);
+  const extraInterest = monthlyExtraInterest(previousStatement.currentBalances);
+  const accruedInterest = accountAdd(baseInterest, extraInterest);
+  const ytdAccruedInterest = accountAdd(
+    currentDate.month === 1
+      ? zeroAccount()
+      : previousStatement.ytdAccruedInterest,
+    accruedInterest
+  );
+
   // Credit accrued interest if in December
-  // Add salary contributions (if still working)
+  if (currentDate.month === 12) {
+    nextBalance.oa += ytdAccruedInterest.oa;
+    nextBalance.sa += ytdAccruedInterest.sa;
+    nextBalance.ma += ytdAccruedInterest.ma;
+  }
+
+  // TODO Add salary adjustments
+  const salary = isCurrentlyWorking ? settings.currentSalary : 0;
+
+  // Add salary contributions
+  if (isCurrentlyWorking) {
+    const contributionFromSalary = contributionsFromSalaryOrBonus({
+      salary,
+      date: currentDate,
+      age: currentAge,
+      ytdContributions: nextYtdContributions,
+    });
+
+    salaryContributions.oa += contributionFromSalary.oa;
+    salaryContributions.sa += contributionFromSalary.sa;
+    salaryContributions.ma += contributionFromSalary.ma;
+    nextBalance.oa += contributionFromSalary.oa;
+    nextBalance.sa += contributionFromSalary.sa;
+    nextBalance.ma += contributionFromSalary.ma;
+  }
+
   // Add bonus contributions (if still working)
+  const isCreditingBonus = isCurrentlyWorking && currentDate.month === 12;
+  const bonus = isCreditingBonus ? settings.annualBonusInMonths * salary : 0;
+  if (isCreditingBonus) {
+    const contributionFromBonus = contributionsFromSalaryOrBonus(
+      {
+        salary: bonus,
+        date: currentDate,
+        age: currentAge,
+        ytdContributions: nextYtdContributions,
+      },
+      true
+    );
+    salaryContributions.oa += contributionFromBonus.oa;
+    salaryContributions.sa += contributionFromBonus.sa;
+    salaryContributions.ma += contributionFromBonus.ma;
+    nextBalance.oa += contributionFromBonus.oa;
+    nextBalance.sa += contributionFromBonus.sa;
+    nextBalance.ma += contributionFromBonus.ma;
+  }
+
+  nextYtdContributions.oa += salaryContributions.oa;
+  nextYtdContributions.sa += salaryContributions.sa;
+  nextYtdContributions.ma += salaryContributions.ma;
+
+  // Deduct housing payments from OA
+  if (isCurrentlyPayingHousing) {
+    nextBalance.oa -= settings.housingDeductions;
+    nextHousingOaBalance += settings.housingDeductions;
+  }
+  nextHousingYtdOaAccruedInterest += (nextHousingOaBalance * 0.025) / 12;
+  // Credit accrued interest from mortgage if in December
+  if (currentDate.month === 12) {
+    nextHousingOaBalance += nextHousingYtdOaAccruedInterest;
+  }
+
   // Overflow MA in excess of BHS to SA
+  const bhsLimit = getBhs(currentDate.year);
+  if (nextBalance.ma > bhsLimit) {
+    nextBalance.sa += nextBalance.ma - bhsLimit;
+    nextBalance.ma = bhsLimit;
+  }
+
+  // Top ups & transfers in January
+  let saCashTopUp = 0;
+  let oaToSaTransfer = 0;
+  if (currentDate.month === 1) {
+    saCashTopUp = settings.annualCashTopUp;
+    nextBalance.sa += saCashTopUp;
+
+    oaToSaTransfer = settings.annualOaToSaTransfer;
+    nextBalance.oa -= oaToSaTransfer;
+    nextBalance.sa += oaToSaTransfer;
+  }
+
+  return {
+    date: currentDate,
+    age: currentAge,
+    salary,
+    bonus,
+    saCashTopUp,
+    oaToSaTransfer,
+    currentBalances: nextBalance,
+    ytdContributions: nextYtdContributions,
+    salaryContributions,
+    accruedInterest,
+    ytdAccruedInterest,
+    housingOaBalance: nextHousingOaBalance,
+    housingDeductions: settings.housingDeductions,
+    housingYtdOaAccruedInterest: nextHousingYtdOaAccruedInterest,
+    bhsLimit,
+  };
 };
 
 describe("generateInitialStatement", () => {
   it("should generate the initial state correctly for months greater than current month", () => {
-    const input = {
+    const input: UserInputs = {
       now: new Date("2023-06-18"),
       birthYear: 1990,
       birthMonth: 8,
@@ -270,13 +472,27 @@ describe("generateInitialStatement", () => {
       },
       housingOaBalance: 50000,
       housingDeductions: 500,
+      ageToStopWorking: {
+        year: 60,
+        month: 0,
+      },
+      timeForLastMortgagePayment: {
+        year: 2050,
+        month: 0,
+      },
     };
     expect(generateInitialStatement(input)).toMatchInlineSnapshot(`
       Object {
+        "accruedInterest": Object {
+          "ma": 0,
+          "oa": 0,
+          "sa": 0,
+        },
         "age": Object {
           "month": 10,
           "year": 32,
         },
+        "bhsLimit": 68500,
         "bonus": 0,
         "currentBalances": Object {
           "ma": 10000,
@@ -293,6 +509,11 @@ describe("generateInitialStatement", () => {
         "oaToSaTransfer": 0,
         "saCashTopUp": 0,
         "salary": 10000,
+        "salaryContributions": Object {
+          "ma": 479.964,
+          "oa": 1380.174,
+          "sa": 359.86199999999997,
+        },
         "ytdAccruedInterest": Object {
           "ma": 0,
           "oa": 0,
@@ -307,7 +528,7 @@ describe("generateInitialStatement", () => {
     `);
   });
   it("should generate the initial state correctly for months less than current month", () => {
-    const input = {
+    const input: UserInputs = {
       now: new Date("2023-06-18"),
       birthYear: 1990,
       birthMonth: 4,
@@ -322,13 +543,27 @@ describe("generateInitialStatement", () => {
       },
       housingOaBalance: 50000,
       housingDeductions: 500,
+      ageToStopWorking: {
+        year: 60,
+        month: 0,
+      },
+      timeForLastMortgagePayment: {
+        year: 2050,
+        month: 0,
+      },
     };
     expect(generateInitialStatement(input)).toMatchInlineSnapshot(`
       Object {
+        "accruedInterest": Object {
+          "ma": 0,
+          "oa": 0,
+          "sa": 0,
+        },
         "age": Object {
           "month": 2,
           "year": 33,
         },
+        "bhsLimit": 68500,
         "bonus": 0,
         "currentBalances": Object {
           "ma": 10000,
@@ -345,6 +580,11 @@ describe("generateInitialStatement", () => {
         "oaToSaTransfer": 0,
         "saCashTopUp": 0,
         "salary": 10000,
+        "salaryContributions": Object {
+          "ma": 479.964,
+          "oa": 1380.174,
+          "sa": 359.86199999999997,
+        },
         "ytdAccruedInterest": Object {
           "ma": 0,
           "oa": 0,
@@ -492,7 +732,101 @@ describe("contributionsFromSalaryOrBonus", () => {
     `);
   });
 });
-
+describe("monthlyBaseInterest", () => {
+  it("calculates correctly", () => {
+    const interest = monthlyBaseInterest({
+      oa: 10000,
+      sa: 10000,
+      ma: 10000,
+    });
+    expect(interest).toMatchInlineSnapshot(`
+      Object {
+        "ma": 33.333333333333336,
+        "oa": 20.833333333333332,
+        "sa": 33.333333333333336,
+      }
+    `);
+  });
+});
+describe("monthlyExtraInterest", () => {
+  it("calculates correctly for total balance under 60k", () => {
+    const interest = monthlyExtraInterest({
+      oa: 10000,
+      sa: 10000,
+      ma: 10000,
+    });
+    expect(interest).toMatchInlineSnapshot(`
+      Object {
+        "ma": 8.333333333333334,
+        "oa": 8.333333333333334,
+        "sa": 8.333333333333334,
+      }
+    `);
+  });
+  it("calculates correctly for total balance over 60k, where OA is maxed out", () => {
+    const interest = monthlyExtraInterest({
+      oa: 30000,
+      sa: 30000,
+      ma: 30000,
+    });
+    expect(interest).toMatchInlineSnapshot(`
+      Object {
+        "ma": 8.333333333333334,
+        "oa": 16.666666666666668,
+        "sa": 25,
+      }
+    `);
+  });
+});
+describe("getBhs", () => {
+  it("calculates correctly", () => {
+    expect(getBhs(2023)).toBe(68500);
+    expect(getBhs(2024)).toBe(71719.5);
+    expect(getBhs(2050)).toBe(236728.7346942958);
+  });
+});
+describe("generateNextStatement", () => {
+  it("calculates correctly for over a year", () => {
+    let lastStatement: Statement = {
+      date: { year: 2023, month: 12 },
+      age: { year: 30, month: 0 },
+      salary: 6000,
+      bonus: 0,
+      saCashTopUp: 0,
+      oaToSaTransfer: 0,
+      currentBalances: { oa: 10000, sa: 10000, ma: 10000 },
+      salaryContributions: { oa: 10000, sa: 10000, ma: 10000 },
+      accruedInterest: { oa: 0, sa: 0, ma: 0 },
+      ytdContributions: { oa: 0, sa: 0, ma: 0 },
+      ytdAccruedInterest: { oa: 0, sa: 0, ma: 0 },
+      housingOaBalance: 10000,
+      housingDeductions: 200,
+      housingYtdOaAccruedInterest: 0,
+      bhsLimit: getBhs(2022),
+    };
+    const settings: UserInputs = {
+      now: new Date("2023-06-01"),
+      birthYear: 1993,
+      birthMonth: 12,
+      currentSalary: 6000,
+      annualBonusInMonths: 2,
+      annualCashTopUp: 1000,
+      annualOaToSaTransfer: 1000,
+      currentBalances: { oa: 10000, sa: 10000, ma: 10000 },
+      housingOaBalance: 10000,
+      housingDeductions: 200,
+      ageToStopWorking: { year: 62, month: 0 },
+      timeForLastMortgagePayment: { year: 2050, month: 0 },
+    };
+    const statements = [lastStatement];
+    for (let i = 0; i < 13; i++) {
+      const nextStatement = generateNextStatement(lastStatement, settings);
+      statements.push(nextStatement);
+      lastStatement = nextStatement;
+    }
+    expect(statements).toMatchSnapshot();
+  });
+});
 // monthly input
 // - age
 // - accounts (oa, sa, ma)
