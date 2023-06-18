@@ -1,9 +1,6 @@
 // Interest calculated monthly, compounded annually
 // https://www.cpf.gov.sg/member/faq/growing-your-savings/cpf-interest-rates/how-is-my-cpf-interest-computed-and-credited-into-my-accounts
 
-// Retirement sums
-// https://www.cpf.gov.sg/member/faq/retirement-income/general-information-on-retirement/what-are-the-retirement-sums-applicable-to-me-
-
 // User inputs
 // Current OA Balance
 // Current SA Balance
@@ -57,6 +54,7 @@ interface Statement {
   housingDeductions: number;
   housingYtdOaAccruedInterest: number;
   bhsLimit: number;
+  frs: number;
 }
 
 interface UserInputs {
@@ -136,6 +134,7 @@ const generateInitialStatement = ({
     housingDeductions,
     housingYtdOaAccruedInterest,
     bhsLimit: getBhs(date.year),
+    frs: getFrs(date.year),
   };
 };
 
@@ -149,6 +148,26 @@ export const getBhs = (currentYear: number): number => {
   return 1.047 ** (currentYear - lastPublishedYear) * lastCohortBhs;
 };
 
+// Retirement sums
+// https://www.cpf.gov.sg/member/faq/retirement-income/general-information-on-retirement/what-are-the-retirement-sums-applicable-to-me-
+export const getFrs = (currentYear: number): number => {
+  const lastPublishedYear = 2027;
+  const lastCohortFrs = 228200;
+  switch (currentYear) {
+    case 2023:
+      return 198800;
+    case 2024:
+      return 205800;
+    case 2025:
+      return 213000;
+    case 2026:
+      return 220400;
+    case lastPublishedYear: // For 2027
+      return lastCohortFrs;
+    default:
+      return 1.03 ** (currentYear - lastPublishedYear) * lastCohortFrs;
+  }
+};
 // CPF Allocation Rate
 // https://www.cpf.gov.sg/content/dam/web/employer/employer-obligations/documents/CPF%20allocation%20rates%20from%201%20January%202023.pdf
 const getAllocationRate = (age: Age): Account => {
@@ -452,6 +471,7 @@ const generateNextStatement = (
     housingDeductions: settings.housingDeductions,
     housingYtdOaAccruedInterest: nextHousingYtdOaAccruedInterest,
     bhsLimit,
+    frs: getFrs(currentDate.year),
   };
 };
 
@@ -503,6 +523,7 @@ describe("generateInitialStatement", () => {
           "month": 6,
           "year": 2023,
         },
+        "frs": 198800,
         "housingDeductions": 500,
         "housingOaBalance": 50000,
         "housingYtdOaAccruedInterest": 0,
@@ -574,6 +595,7 @@ describe("generateInitialStatement", () => {
           "month": 6,
           "year": 2023,
         },
+        "frs": 198800,
         "housingDeductions": 500,
         "housingOaBalance": 50000,
         "housingYtdOaAccruedInterest": 0,
@@ -802,7 +824,8 @@ describe("generateNextStatement", () => {
       housingOaBalance: 10000,
       housingDeductions: 200,
       housingYtdOaAccruedInterest: 0,
-      bhsLimit: getBhs(2022),
+      bhsLimit: getBhs(2023),
+      frs: getFrs(2023),
     };
     const settings: UserInputs = {
       now: new Date("2023-06-01"),
