@@ -461,11 +461,16 @@ const InputPanel: FunctionComponent<InputPanelProps> = ({
 
 export const CpfCalculator: FunctionComponent = () => {
   const [birthYear, setBirthYear] = useState("1990");
+  const [birthMonth, setBirthMonth] = useState("1");
   const [stopWorkAge, setStopWorkAge] = useState("55");
   const [salary, setSalary] = useState("3000");
   const [oa, setOa] = useState("23000");
   const [sa, setSa] = useState("6000");
   const [ma, setMa] = useState("8000");
+  const [housingBalance, setHousingBalance] = useState("0");
+  const [mortgage, setMortgage] = useState("0");
+  const [mortgageEndYear, setMortgageEndYear] = useState("2050");
+  const [mortgageEndMonth, setMortgageEndMonth] = useState("1");
   const [salaryInflationPerYear, setSalaryInflationPerYear] = useState("2.5");
   const [bonusByMonths, setBonusByMonths] = useState("1");
   const [showAdvanceSettings, setShowAdvanceSettings] = useState(false);
@@ -486,7 +491,7 @@ export const CpfCalculator: FunctionComponent = () => {
     const results = generateForecast({
       now: new Date(),
       birthYear: Number(birthYear),
-      birthMonth: 1,
+      birthMonth: Number(birthMonth),
       currentSalary: Number(salary),
       annualSalaryIncrementPct: Number(salaryInflationPerYear),
       annualBonusInMonths: Number(bonusByMonths),
@@ -497,13 +502,16 @@ export const CpfCalculator: FunctionComponent = () => {
         ma: Number(ma),
         sa: Number(sa),
       },
-      housingOaBalance: 0,
-      housingDeductions: 0,
+      housingOaBalance: Number(housingBalance),
+      housingDeductions: Number(mortgage),
       ageToStopWorking: {
         year: Number(stopWorkAge),
         month: 0,
       },
-      timeForLastMortgagePayment: { year: 0, month: 0 },
+      timeForLastMortgagePayment: {
+        year: Number(mortgageEndYear),
+        month: Number(mortgageEndMonth),
+      },
     })
       .filter((item) => item.age.month === 0)
       .map((line) => ({
@@ -580,6 +588,12 @@ export const CpfCalculator: FunctionComponent = () => {
         <>
           <div className="md:flex text-center">
             <InputPanel
+              title="Birth Month"
+              tooltip="1 = January, 12 = December"
+              value={birthMonth}
+              setValue={setBirthMonth}
+            />
+            <InputPanel
               title="Bonus (months)"
               tooltip="Bonus will be credited in December. Generally includes performance, 13th month and corporate bonus."
               value={bonusByMonths}
@@ -591,19 +605,47 @@ export const CpfCalculator: FunctionComponent = () => {
               value={salaryInflationPerYear}
               setValue={setSalaryInflationPerYear}
             />
+          </div>
+          <div className="md:flex text-center">
             <InputPanel
               title="SA Cash Top Up"
               tooltip="CPF top up to SA account is assumed to be performed in January each year"
               value={topUp}
               setValue={setTopUp}
             />
-          </div>
-          <div className="md:flex text-center">
             <InputPanel
               title="OA to SA Transfer"
               tooltip="Transfer from CPF OA to SA account is assumed to be performed in January each year"
               value={transfer}
               setValue={setTransfer}
+            />
+          </div>
+          <div className="md:flex text-center">
+            <InputPanel
+              title="OA Used for Housing"
+              tooltip="Amount withdrawn from OA for housing."
+              value={housingBalance}
+              setValue={setHousingBalance}
+            />
+            <InputPanel
+              title="Monthly Mortgage"
+              tooltip="Monthly mortgage payment from CPF."
+              value={mortgage}
+              setValue={setMortgage}
+            />
+          </div>
+          <div className="md:flex text-center">
+            <InputPanel
+              title="Mortgage End Date (year)"
+              tooltip="Date of last mortgage payment."
+              value={mortgageEndYear}
+              setValue={setMortgageEndYear}
+            />
+            <InputPanel
+              title="Mortgage End Date (month)"
+              tooltip="Date of last mortgage payment."
+              value={mortgageEndMonth}
+              setValue={setMortgageEndMonth}
             />
           </div>
         </>
