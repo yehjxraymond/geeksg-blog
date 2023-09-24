@@ -108,6 +108,6 @@ module.exports = {
     },
     {
       resolve: `gatsby-plugin-slug`,
-    }
+    },
   ],
 };

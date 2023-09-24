@@ -452,7 +452,7 @@ export const generateNextStatement = (
     accruedInterest,
     ytdAccruedInterest,
     housingOaBalance: nextHousingOaBalance,
-    housingDeductions: housingDeductions,
+    housingDeductions,
     housingYtdOaAccruedInterest: nextHousingYtdOaAccruedInterest,
     bhsLimit,
     frs: getFrs(currentDate.year),
