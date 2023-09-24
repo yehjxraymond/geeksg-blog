@@ -86,7 +86,7 @@ export const PastTransaction = ({ resaleData }: { resaleData: ResaleData }) => {
     <div>
       <h3>
         Past Transactions
-        <div className="d-inline small pointer" onClick={toggleCollapsed}>
+        <div className="d-inline small cursor-pointer" onClick={toggleCollapsed}>
           {collapsed ? " (show)" : " (hide)"}
         </div>
       </h3>
@@ -140,7 +140,7 @@ export const NearbyPastTransactions = ({
     <div>
       <h3>
         Nearby Past Transactions
-        <div className="d-inline small pointer" onClick={toggleCollapsed}>
+        <div className="d-inline small cursor-pointer" onClick={toggleCollapsed}>
           {collapsed ? " (show)" : " (hide)"}
         </div>
       </h3>
@@ -197,7 +197,7 @@ export const PastRentalRate = ({ resaleData }: { resaleData: ResaleData }) => {
     <div>
       <h3>
         Rental Rates
-        <div className="d-inline small pointer" onClick={toggleCollapsed}>
+        <div className="d-inline small cursor-pointer" onClick={toggleCollapsed}>
           {collapsed ? " (show)" : " (hide)"}
         </div>
       </h3>
@@ -256,9 +256,9 @@ const InputField = ({
           {title} {tooltip && <InfoTooltip>{tooltip}</InfoTooltip>}
         </h5>
       </div>
-      <div style={{ backgroundColor: `rgba(${rgb}, 0.3)` }} className="py-3">
+      <div style={{ backgroundColor: `rgba(${rgb}, 0.3)` }} className="py-3 px-2">
         <input
-          className="no-outline-focus text-center"
+          className="no-outline-focus text-center w-full"
           style={{
             background: "rgba(255, 255, 255, 0.2)",
             borderWidth: "0 0 2px 0",
@@ -355,7 +355,7 @@ const TwoVariateRegression = ({ resaleData }: { resaleData: ResaleData }) => {
       >
         {estimate ? "Try Again" : "Calculate"}
       </button>
-      <div className="mt-2 pointer" onClick={toggleInfo}>
+      <div className="mt-2 cursor-pointer" onClick={toggleInfo}>
         <h6>{showInfo ? "Hide" : "Show"} More info</h6>
       </div>
       {showInfo && (
@@ -460,7 +460,7 @@ const ThreeVariateRegression = ({ resaleData }: { resaleData: ResaleData }) => {
       >
         {estimate ? "Try Again" : "Calculate"}
       </button>
-      <div className="mt-2 pointer" onClick={toggleInfo}>
+      <div className="mt-2 cursor-pointer" onClick={toggleInfo}>
         <h6>{showInfo ? "Hide" : "Show"} More info</h6>
       </div>
       {showInfo && (
