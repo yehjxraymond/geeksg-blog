@@ -86,7 +86,10 @@ export const PastTransaction = ({ resaleData }: { resaleData: ResaleData }) => {
     <div>
       <h3>
         Past Transactions
-        <div className="d-inline small cursor-pointer" onClick={toggleCollapsed}>
+        <div
+          className="d-inline small cursor-pointer"
+          onClick={toggleCollapsed}
+        >
           {collapsed ? " (show)" : " (hide)"}
         </div>
       </h3>
@@ -140,7 +143,10 @@ export const NearbyPastTransactions = ({
     <div>
       <h3>
         Nearby Past Transactions
-        <div className="d-inline small cursor-pointer" onClick={toggleCollapsed}>
+        <div
+          className="d-inline small cursor-pointer"
+          onClick={toggleCollapsed}
+        >
           {collapsed ? " (show)" : " (hide)"}
         </div>
       </h3>
@@ -197,7 +203,10 @@ export const PastRentalRate = ({ resaleData }: { resaleData: ResaleData }) => {
     <div>
       <h3>
         Rental Rates
-        <div className="d-inline small cursor-pointer" onClick={toggleCollapsed}>
+        <div
+          className="d-inline small cursor-pointer"
+          onClick={toggleCollapsed}
+        >
           {collapsed ? " (show)" : " (hide)"}
         </div>
       </h3>
@@ -256,7 +265,10 @@ const InputField = ({
           {title} {tooltip && <InfoTooltip>{tooltip}</InfoTooltip>}
         </h5>
       </div>
-      <div style={{ backgroundColor: `rgba(${rgb}, 0.3)` }} className="py-3 px-2">
+      <div
+        style={{ backgroundColor: `rgba(${rgb}, 0.3)` }}
+        className="py-3 px-2"
+      >
         <input
           className="no-outline-focus text-center w-full"
           style={{
@@ -616,7 +628,12 @@ export const CalculatorContent = ({
   );
 };
 
-export const HdbResaleCalculator = () => {
+export const HdbResaleCalculator: FunctionComponent<{ location: Location }> = ({
+  location,
+}) => {
+  const urlParams = new URLSearchParams(location.search);
+  const reference = urlParams.get("r");
+
   const [postalCode, setPostalCode] = useState("");
   const [pendingData, setPendingData] = useState(false);
   const [resaleData, setResaleData] = useState<undefined | ResaleData>(
@@ -630,7 +647,7 @@ export const HdbResaleCalculator = () => {
     setResaleData(undefined);
     setPendingData(true);
     const { data } = await axios.get(
-      `https://api.geek.sg/getResaleInfo/${postalCode}`
+      `https://api.geek.sg/getResaleInfo/${postalCode}?r=${reference}`
     );
     setResaleData(data);
     setPendingData(false);

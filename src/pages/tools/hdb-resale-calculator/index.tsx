@@ -3,7 +3,9 @@ import { HdbResaleCalculator } from "../../../components/interactive/resale";
 import { Layout } from "../../../components/layout";
 import { SEO } from "../../../components/seo";
 
-export const ResaleCalculator: FunctionComponent = () => {
+export const ResaleCalculator: FunctionComponent<{ location: Location }> = ({
+  location,
+}) => {
   return (
     <>
       <SEO
@@ -51,7 +53,7 @@ export const ResaleCalculator: FunctionComponent = () => {
             property and click on "Fetch Data". Within moments, you'll have a
             detailed report at your fingertips.
           </p>
-          <HdbResaleCalculator />
+          <HdbResaleCalculator location={location} />
         </div>
       </Layout>
     </>
