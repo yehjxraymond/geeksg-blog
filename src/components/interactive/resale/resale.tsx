@@ -210,35 +210,39 @@ export const PastRentalRate = ({ resaleData }: { resaleData: ResaleData }) => {
           {collapsed ? " (show)" : " (hide)"}
         </div>
       </h3>
-      {!collapsed && (
-        <table className="table text-center w-full">
-          <thead>
-            <tr className="bg-gray-800 text-white">
-              <th className="py-2">Flat Type</th>
-              <th className="py-2">Agreement Date</th>
-              <th className="py-2">Rent</th>
-            </tr>
-          </thead>
-          <tbody>
-            {rentalRates.map((txn, key) => (
-              <tr key={key}>
-                <td>{txn.flatType}</td>
-                <td>
-                  {txn.month} {txn.year}
-                </td>
-                <td>${txn.rent.toLocaleString()}</td>
+      {!collapsed ? (
+        rentalRates.length > 0 ? (
+          <table className="table text-center w-full">
+            <thead>
+              <tr className="bg-gray-800 text-white">
+                <th className="py-2">Flat Type</th>
+                <th className="py-2">Agreement Date</th>
+                <th className="py-2">Rent</th>
               </tr>
-            ))}
-            {(!rentalRates || rentalRates.length === 0) && (
-              <tr>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-              </tr>
-            )}
-          </tbody>
-        </table>
-      )}
+            </thead>
+            <tbody>
+              {rentalRates.map((txn, key) => (
+                <tr key={key}>
+                  <td>{txn.flatType}</td>
+                  <td>
+                    {txn.month} {txn.year}
+                  </td>
+                  <td>${txn.rent.toLocaleString()}</td>
+                </tr>
+              ))}
+              {(!rentalRates || rentalRates.length === 0) && (
+                <tr>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        ) : (
+          <div>No rental data available</div>
+        )
+      ) : null}
     </div>
   );
 };
