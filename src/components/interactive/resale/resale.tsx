@@ -309,6 +309,7 @@ const ValueField = ({ title, value }: { title: string; value: string }) => {
 };
 
 const TwoVariateRegression = ({ resaleData }: { resaleData: ResaleData }) => {
+  if (resaleData.lastTransactions.length === 0) return null;
   const { leaseCommencementDate } = resaleData.lastTransactions[0];
   const sampleFloorArea = resaleData.lastTransactions[0].floorArea;
   const eligibleTransactions = resaleData.nearbyTransactions.filter(
@@ -392,9 +393,15 @@ const TwoVariateRegression = ({ resaleData }: { resaleData: ResaleData }) => {
 };
 
 const ThreeVariateRegression = ({ resaleData }: { resaleData: ResaleData }) => {
-  const sampleLeaseCommencementDate =
-    resaleData.lastTransactions[0].leaseCommencementDate;
-  const sampleFloorArea = resaleData.lastTransactions[0].floorArea;
+  const hasLastTransaction = resaleData.lastTransactions.length > 0;
+  if (!hasLastTransaction && resaleData.nearbyTransactions.length === 0)
+    return null;
+  const sampleLeaseCommencementDate = hasLastTransaction
+    ? resaleData.lastTransactions[0].leaseCommencementDate
+    : resaleData.nearbyTransactions[0].leaseCommencementDate;
+  const sampleFloorArea = hasLastTransaction
+    ? resaleData.lastTransactions[0].floorArea
+    : resaleData.nearbyTransactions[0].floorArea;
   const eligibleTransactions = resaleData.nearbyTransactions;
   const x = eligibleTransactions.map((txn) => [
     txn.floorArea,
@@ -651,7 +658,8 @@ export const HdbResaleCalculator: FunctionComponent<{ location: Location }> = ({
     setResaleData(undefined);
     setPendingData(true);
     const { data } = await axios.get(
-      `https://api.geek.sg/getResaleInfo/${postalCode}?r=${reference}`
+      // `https://api.geek.sg/getResaleInfo/${postalCode}?r=${reference}`
+      `http://localhost:3000/dev/getResaleInfo/${postalCode}?r=${reference}`
     );
     setResaleData(data);
     setPendingData(false);
