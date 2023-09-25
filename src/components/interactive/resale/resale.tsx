@@ -624,6 +624,18 @@ export const CalculatorContent = ({
 }: {
   resaleData: ResaleData;
 }) => {
+  if (
+    resaleData.lastTransactions.length === 0 &&
+    resaleData.nearbyTransactions.length === 0
+  )
+    return (
+      <div>
+        <div className="pt-4">
+          <p>Sorry! We are unable to find any data for this postal code.</p>
+          <p>Please try again with another postal code.</p>
+        </div>
+      </div>
+    );
   return (
     <div>
       <Summary resaleData={resaleData} />
