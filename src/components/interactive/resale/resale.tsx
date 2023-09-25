@@ -658,8 +658,7 @@ export const HdbResaleCalculator: FunctionComponent<{ location: Location }> = ({
     setResaleData(undefined);
     setPendingData(true);
     const { data } = await axios.get(
-      // `https://api.geek.sg/getResaleInfo/${postalCode}?r=${reference}`
-      `http://localhost:3000/dev/getResaleInfo/${postalCode}?r=${reference}`
+      `https://api.geek.sg/getResaleInfo/${postalCode}?r=${reference}`
     );
     setResaleData(data);
     setPendingData(false);
