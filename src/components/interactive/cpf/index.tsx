@@ -497,7 +497,7 @@ const InputPanel: FunctionComponent<InputPanelProps> = ({
         style={{ backgroundColor: bgColorHeader || "rgba(52, 73, 94, 0.5)" }}
       >
         <h5>
-          {title} {tooltip && <InfoTooltip>For calculating age</InfoTooltip>}
+          {title} {tooltip && <InfoTooltip>{tooltip}</InfoTooltip>}
         </h5>
       </div>
       <div
