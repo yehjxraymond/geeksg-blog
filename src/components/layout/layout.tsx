@@ -30,7 +30,7 @@ const menuItems: MenuItem[] = [
     dropdownItems: [
       {
         label: "HDB Resale Price Calculator",
-        href: "/tools/hdb-resale-calculator",
+        href: "https://sgpropinsider.com/?r=geek",
         description: "Get valuation of your HDB resale flat instantly",
         icon: (
           <svg
