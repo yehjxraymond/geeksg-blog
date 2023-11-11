@@ -29,6 +29,28 @@ const menuItems: MenuItem[] = [
     label: "Tools",
     dropdownItems: [
       {
+        label: "ChatGPT for Teams",
+        href:
+          "wielded.com?utm_source=geeksg&utm_medium=web&utm_campaign=navigation_url",
+        description:
+          "Multiply your team's productivity & foster a collaborative and shared workspace.",
+        icon: (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="w-6 h-6"
+          >
+            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+            <polyline points="16 7 22 7 22 13" />
+          </svg>
+        ),
+      },
+      {
         label: "HDB Resale Price Calculator",
         href: "https://sgpropinsider.com/?r=geek",
         description: "Get valuation of your HDB resale flat instantly",

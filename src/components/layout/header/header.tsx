@@ -68,7 +68,7 @@ export const FlyoutMenu: FunctionComponent<MenuItemWithDropdown> = ({
                     href={href}
                     className="-m-3 p-3 flex items-start space-x-4 rounded-lg hover:bg-gray-50 transition ease-in-out duration-150"
                   >
-                    {icon}
+                    <div className="w-6">{icon}</div>
                     <div className="space-y-1">
                       <p className="text-base leading-6 font-medium text-gray-900">
                         {text}
